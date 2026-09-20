@@ -1,0 +1,414 @@
+{
+  "meta": {
+    "title": "Zenitha Portfolio",
+    "description": "Portofolio Winodya Zenitha — Teknik Informatika, cloud & DevOps."
+  },
+  "cover": { "title": "{Z}enitha {P}ortfolio", "scrollCue": "scroll" },
+  "about": {
+    "name": "{W}inodya {Z}enitha",
+    "role": "Cloud & DevOps · Data",
+    "bio": "Fresh graduate Teknik Informatika yang betah berlama-lama di terminal. Fokus saya di Kubernetes, service mesh, dan observability, memastikan sebuah rilis bisa naik ke produksi tanpa membuat penggunanya sadar ada yang berubah. Skripsi saya membandingkan dua strategi deployment di Google Kubernetes Engine, dan dari situ saya jatuh cinta pada pekerjaan yang hasilnya diukur, bukan dikira-kira. Kebiasaan mengukur itu juga yang membawa saya ke data. Saya terbiasa membersihkan data mentah, menyusunnya jadi dashboard di Power BI, lalu menariknya jadi temuan yang bisa dipakai orang untuk mengambil keputusan. Dua sisi ini nyambung: satu menjaga sistem tetap sehat, satunya membaca apa yang sistem itu hasilkan.",
+    "education": [
+      {
+        "title": "S1 Teknik Informatika · Telkom University Purwokerto",
+        "details": ["Lulus 11 Agustus 2026", "IPK 3,73 / 4,00"]
+      },
+      {
+        "title": "Bangkit Academy · Google, GoTo, Traveloka",
+        "details": ["Cloud Computing", "Cohort 2024", "Full Graduate"]
+      }
+    ],
+    "photos": [
+      { "image": "assets/photos/me-1.webp", "alt": "Winodya Zenitha" },
+      { "image": "assets/photos/me-2.webp", "alt": "" }
+    ]
+  },
+  "skills": {
+    "title": "{S}kills & {T}ools",
+    "tools": [
+      { "name": "Kubernetes", "icon": "assets/tools/kubernetes.svg" },
+      { "name": "Docker", "icon": "assets/tools/docker.svg" },
+      { "name": "Istio", "icon": "assets/tools/istio.svg" },
+      { "name": "Google Cloud", "icon": "assets/tools/google-cloud.svg" },
+      { "name": "Prometheus", "icon": "assets/tools/prometheus.svg" },
+      { "name": "Grafana", "icon": "assets/tools/grafana.svg" },
+      { "name": "k6", "icon": "assets/tools/k6.svg" },
+      { "name": "Git", "icon": "assets/tools/git.svg" },
+      { "name": "Bash", "icon": "assets/tools/bash.svg" },
+      { "name": "Postman", "icon": "assets/tools/postman.svg" },
+      { "name": "Laravel", "icon": "assets/tools/laravel.svg" },
+      { "name": "PHP", "icon": "assets/tools/php.svg" },
+      { "name": "MySQL", "icon": "assets/tools/mysql.svg" },
+      { "name": "PostgreSQL", "icon": "assets/tools/postgresql.svg" },
+      { "name": "Python", "icon": "assets/tools/python.svg" },
+      { "name": "Power BI", "icon": "assets/tools/power-bi.svg" },
+      { "name": "MS Office", "icon": "assets/tools/ms-office.svg" }
+    ]
+  },
+  "toc": {
+    "title": "{T}able of {C}ontents",
+    "subtitle": "empat bagian, satu kolam",
+    "items": [
+      { "number": "01", "title": "Project kuliah", "note": "6 project", "href": "#projects" },
+      { "number": "02", "title": "Organisasi & kepanitiaan", "note": "4 peran", "href": "#org" },
+      { "number": "03", "title": "Bangkit Academy", "note": "final project", "href": "#bangkit" },
+      { "number": "04", "title": "Prestasi & publikasi", "note": "2 catatan", "href": "#honours" }
+    ]
+  },
+  "projects": {
+    "number": "01",
+    "title": "{P}roject kuliah",
+    "note": "2022 – 2026",
+    "items": [
+      {
+        "title": "SIRAMBA",
+        "meta": "Capstone Project · Backend & Integrasi Sistem · 2025–2026",
+        "images": ["assets/projects/pj-siramba.webp", "assets/projects/pj-siramba2.webp"],
+        "caption": "Pameran produk dan unit alat di lahan",
+        "paragraphs": [
+          "Sistem monitoring dan otomasi penyiraman bawang merah berbasis IoT. Tiga sensor membaca kelembaban tanah, suhu tanah, dan suhu udara, lalu ESP32 menyalakan pompa 220V sendiri saat kelembaban turun di bawah 40\u00a0persen atau suhu udara lewat 35\u00a0derajat. Petani tidak perlu bolak-balik ke sawah.",
+          "Saya pegang sisi data dan integrasinya: jalur dari sensor ke aplikasi, logika ambang batas dan jeda sepuluh menit antar penyiraman, serta data yang dibaca dashboard aplikasi. Layar TFT di lahan tetap menampilkan kondisi walau Wi-Fi putus, jadi alat ini tidak mati total saat sinyal hilang. Saya juga menyusun buku panduan penggunaannya."
+        ],
+        "stack": ["ESP32", "DHT22", "DS18B20", "IoT", "REST API"]
+      },
+      {
+        "title": "CookChella API",
+        "meta": "Aplikasi Berbasis Platform · Backend Developer · 2024",
+        "images": ["assets/projects/pj-cook.webp"],
+        "caption": "Tampilan aplikasi CookChella",
+        "paragraphs": [
+          "Backend untuk aplikasi berbagi resep. Saya merancang RESTful API di Laravel untuk CRUD resep, feed, dan timeline.",
+          "PostgreSQL diintegrasikan lewat Supabase, deployment saya tangani sendiri, dan seluruh endpoint diuji dengan Postman supaya integrasi ke frontend berjalan stabil."
+        ],
+        "stack": ["Laravel", "PostgreSQL", "Supabase", "Postman", "REST API"],
+        "link": {
+          "url": "https://github.com/Alfan345/cookchela-api",
+          "text": "github.com/Alfan345/cookchela-api"
+        }
+      },
+      {
+        "title": "Alat Pendeteksi Asap dan Api",
+        "meta": "Dasar Mikro Pengendali · 2024",
+        "images": ["assets/projects/pj-mikro.webp"],
+        "caption": "Rangkaian sensor, buzzer, dan kipas saat diuji",
+        "paragraphs": [
+          "Deteksi dini kebakaran memakai mikrokontroler Wemos D1 mini. Sensor gas MQ2 membaca asap, sensor DHT11 membaca kenaikan suhu. Begitu salah satunya melewati ambang, buzzer berbunyi, LED menyala, dan relay menghidupkan kipas untuk membuang asap.",
+          "Dikerjakan bertiga dengan metode prototyping, dari pengumpulan kebutuhan, perakitan, pengkodean, sampai pengujian dan evaluasi. Kondisinya juga bisa dipantau jarak jauh lewat Blynk karena Wemos sudah punya Wi-Fi bawaan."
+        ],
+        "stack": ["Wemos D1 mini", "MQ2", "DHT11", "Blynk", "IoT"]
+      },
+      {
+        "title": "Ketimpangan Layanan Kesehatan Antar Provinsi",
+        "meta": "Analisis data · 2026",
+        "images": ["assets/projects/pj-bi1.webp"],
+        "caption": "Dashboard Power BI ketimpangan layanan kesehatan",
+        "paragraphs": [
+          "Dashboard Power BI yang menyandingkan ketersediaan rumah sakit dengan angka harapan hidup di 38 provinsi, memakai data BPS 2024–2025. Isinya kartu ringkasan, scatter beban rumah sakit terhadap harapan hidup, sepuluh provinsi dengan beban terberat, dan peta sebaran per provinsi."
+        ],
+        "stack": ["Power BI", "Power Query", "Data BPS"]
+      },
+      {
+        "title": "Analisis Operasional Transaksi Bank 2024",
+        "meta": "Analisis data · 2026",
+        "images": ["assets/projects/pj-bi2.webp"],
+        "caption": "Dashboard operasional transaksi bank",
+        "paragraphs": [
+          "Dashboard operasional untuk 6,2 juta nasabah dan 10,5 ribu transaksi. Memecah jumlah transaksi per cabang, status per channel dari internet banking sampai QRIS, tren bulanan sepanjang 2024, dan nilai transaksi per kategori, dengan filter cabang."
+        ],
+        "stack": ["Power BI", "Power Query", "DAX"]
+      },
+      {
+        "title": "Website Retha Wedding Organizer",
+        "meta": "Kerja Praktik · 2025",
+        "images": ["assets/projects/pj-retha.webp"],
+        "caption": "Website Retha Wedding Organizer",
+        "paragraphs": [
+          "Website perusahaan dengan dashboard admin untuk mengelola paket, jadwal, dan pemesanan. Dibangun dari nol termasuk perancangan basis data dan pengujian fungsionalitas, dan diserahkan lengkap dengan laporan kerja praktik."
+        ],
+        "stack": ["Laravel 11", "MySQL", "PHP", "Bootstrap"]
+      },
+      {
+        "title": "Scentara",
+        "meta": "Implementasi Pengujian Perangkat Lunak · 2025",
+        "images": ["assets/projects/pj-scent.webp"],
+        "caption": "Scentara, direktori parfum lokal",
+        "paragraphs": [
+          "Direktori parfum lokal Indonesia: katalog merek, pencocok aroma berdasarkan preferensi, dan wishlist pengguna.",
+          "Karena mata kuliahnya soal pengujian, pekerjaannya tidak berhenti begitu aplikasinya jadi. Tiap fitur utama diturunkan menjadi kasus uji, dijalankan, lalu hasilnya dicatat. Yang diserahkan bukan cuma produknya, tapi bukti bahwa produknya memang jalan.",
+          "Pengujiannya black box: tiap fungsi diuji dari sisi pengguna tanpa melihat kodenya, memakai equivalence partitioning untuk mengelompokkan masukan yang sah dan tidak sah, lalu boundary value analysis untuk menguji nilai di batas. Ditutup dengan uji penerimaan pengguna."
+        ],
+        "stack": ["Black Box Testing", "Test Case Design", "UAT"]
+      },
+      {
+        "title": "Paw Rangers",
+        "meta": "Interaksi Manusia dan Komputer · 2024",
+        "images": ["assets/projects/pj-paw.webp"],
+        "caption": "Rancangan aplikasi Paw Rangers",
+        "paragraphs": [
+          "Rancangan aplikasi pencari jasa penitipan kucing.",
+          "Keputusan desain terbesarnya diambil di layar paling awal: alur pemilik dan penitip dipisah sejak pendaftaran, supaya keduanya tidak dipaksa lewat jalan yang sama. Sisanya mengikuti, dari pencarian sitter terdekat, profil, sampai percakapan di dalam aplikasi.",
+          "Rancangannya diuji ke calon pengguna lewat usability testing, lalu diukur dengan kuesioner System Usability Scale supaya penilaiannya tidak berhenti di rasa suka atau tidak suka."
+        ],
+        "stack": ["UI/UX", "Figma", "Usability Testing", "SUS"]
+      }
+    ]
+  },
+  "thesis": {
+    "number": "Skripsi",
+    "title": "{R}olling {U}pdate vs {C}anary di GKE",
+    "note": "Tugas akhir · 2026",
+    "heading": "Membandingkan dua strategi rilis pada klaster produksi tiruan",
+    "summary": "Dua strategi deployment diuji berdampingan di Google Kubernetes Engine. Istio menangani routing antar versi, Flagger mengotomatiskan promosi canary berdasarkan metrik, k6 membangkitkan beban, dan Prometheus serta Grafana merekam apa yang terjadi di setiap detik perpindahan trafik.",
+    "findings": [
+      "Canary menahan dampak kesalahan di sebagian kecil trafik karena versi baru dinaikkan bertahap dan dievaluasi Flagger lewat metrik Prometheus sebelum porsinya ditambah.",
+      "Rolling Update menyelesaikan rilis lebih cepat karena tidak menunggu evaluasi di tiap tahap, tapi jendela risikonya lebih lebar begitu versi baru bermasalah.",
+      "Canary sepadan untuk rilis yang perubahannya berisiko. Untuk perubahan kecil yang sudah terbukti di staging, Rolling Update sudah cukup dan lebih hemat waktu."
+    ],
+    "stack": [
+      "Google Kubernetes Engine",
+      "Istio",
+      "Flagger",
+      "k6",
+      "Prometheus",
+      "Grafana",
+      "Docker"
+    ],
+    "shots": [
+      {
+        "image": "assets/thesis/grafana-placeholder.svg",
+        "caption": "Dashboard Grafana saat perpindahan trafik — ganti dengan tangkapan layar milikmu"
+      },
+      { "image": "assets/thesis/k6-placeholder.svg", "caption": "Ringkasan hasil uji beban k6" }
+    ]
+  },
+  "posters": {
+    "number": "01b",
+    "title": "{P}oster {D}esign",
+    "note": "berganti sendiri",
+    "label": "Poster design",
+    "items": [
+      {
+        "title": "Intrusion Detection System Berbasis MLP",
+        "meta": "Poster penelitian · 2026",
+        "image": "assets/posters/po-ids.webp"
+      },
+      {
+        "title": "Business and Art Bootcamp",
+        "meta": "INCUBIX TalentFest x HMBD ITTP · 2023",
+        "image": "assets/posters/po-bootcamp.webp"
+      },
+      {
+        "title": "KULTUM: Kuliah Studi Machine Learning",
+        "meta": "INCUBIX x HMSD ITTP · 2024",
+        "image": "assets/posters/po-kultum.webp"
+      }
+    ]
+  },
+  "organization": {
+    "number": "02",
+    "title": "{O}rganisasi & kepanitiaan",
+    "note": "peran, bukan sekadar keanggotaan",
+    "items": [
+      {
+        "title": "Koordinator Divisi Acara",
+        "meta": "Djagongan, Telkom & UMP Purwokerto · 2024",
+        "images": [
+          "assets/organization/or-djag1.webp",
+          "assets/organization/or-djag2.webp"
+        ],
+        "caption": "Djagongan, seminar jurnalistik dan bedah buku",
+        "paragraphs": [
+          "Seminar jurnalistik membedah buku <em>Laut Bercerita</em> dan tantangannya dalam jurnalisme."
+        ],
+        "points": [
+          "Merancang konsep acara, rundown, dan struktur program agar sesuai tujuan dan tema.",
+          "Mengoordinasikan kebutuhan acara dengan pihak internal dan eksternal, termasuk tim kreatif, pembicara, MC, dan vendor.",
+          "Mengatur jadwal, mengelola multimedia, logistik, dan dekorasi, serta menangani kendala operasional langsung saat acara berjalan."
+        ]
+      },
+      {
+        "title": "Bendahara 1",
+        "meta": "PORSEMA Telkom University Purwokerto · 19–27 Oktober 2024",
+        "images": ["assets/organization/or-porsema.webp"],
+        "caption": "Bendahara 1 PORSEMA 2024",
+        "paragraphs": [
+          "PORSEMA adalah ajang kompetisi non-akademik antar program studi di Telkom University Purwokerto. Tahun itu diikuti sekitar 550 mahasiswa dari 14 program studi, digelar 19–20 dan 25–27 Oktober 2024."
+        ],
+        "points": [
+          "Mengelola dana kegiatan sekitar Rp15 juta, dari penyusunan anggaran, pencairan, sampai penutupan laporan.",
+          "Menangani kebutuhan tujuh cabang lomba: futsal, basket, badminton, voli, solo vocal, modern dance, dan Mobile Legends.",
+          "Menyusun laporan pertanggungjawaban keuangan yang disahkan panitia."
+        ]
+      },
+      {
+        "title": "Bendahara",
+        "meta": "PENGMAS Panti Asuhan Dharmoyuwono, Purwokerto · 2024",
+        "images": ["assets/organization/or-pengmas.webp"],
+        "caption": "Pengabdian masyarakat di Panti Asuhan Dharmoyuwono",
+        "points": [
+          "Mengelola dana sekitar Rp1,5 juta beserta kebutuhan logistik kegiatan sosial.",
+          "Menyusun laporan pertanggungjawaban keuangan yang disahkan panitia."
+        ]
+      },
+      {
+        "title": "Staf Human Resource and Development",
+        "meta": "Esports Telkom University Purwokerto · 2025",
+        "images": ["assets/organization/or-esport.webp"],
+        "caption": "Esports Telkom University Purwokerto",
+        "points": [
+          "Mengelola proses rekrutmen anggota dari perencanaan kebutuhan, seleksi, pendataan peserta, sampai onboarding anggota baru.",
+          "Mengoordinasikan kegiatan internal untuk meningkatkan kolaborasi antar divisi.",
+          "Melakukan evaluasi kinerja individu dan divisi setiap bulan."
+        ]
+      },
+      {
+        "title": "Panitia",
+        "meta": "KULTUM: Kuliah Studi Machine Learning · 23–24 Maret 2024",
+        "images": ["assets/certificates/ct-kultum.webp"],
+        "caption": "Sertifikat kepanitiaan KULTUM 2024",
+        "paragraphs": [
+          "Bootcamp machine learning dua hari dari HMSD ITTP bersama Incubix, Sircle, dan Banyumas Digital Valley. Materinya preprocessing data dan regresi di hari pertama, lalu klasifikasi dan clustering di hari kedua."
+        ]
+      },
+      {
+        "title": "Staff Public Relations & Sponsorship",
+        "meta": "Student War Season 1, ITTP Esports · 6–7 Juli 2024",
+        "images": ["assets/certificates/ct-esport.webp"],
+        "caption": "Sertifikat Student War Season 1",
+        "paragraphs": [
+          "Turnamen esports antar sekolah dan kampus. Divisi ini yang mengurus hubungan keluar: pendekatan ke calon sponsor, penyiapan proposal dan kompensasi kerja sama, serta komunikasi dengan media partner selama rangkaian acara."
+        ]
+      },
+      {
+        "title": "Staf Acara",
+        "meta": "FLS2N tingkat SMA/MA Kabupaten Banyumas & Purbalingga · Mei 2024",
+        "images": ["assets/organization/or-fls2n.webp"],
+        "caption": "FLS2N Kabupaten Purbalingga dan Banyumas",
+        "points": [
+          "Mengawasi jalannya acara pada hari pelaksanaan, memastikan tiap sesi dan penampilan berjalan sesuai rencana dan jadwal.",
+          "Bertanggung jawab atas persiapan teknis meliputi tata panggung, suara, pencahayaan, dan multimedia.",
+          "Ikut dalam evaluasi pasca-acara untuk mengidentifikasi keberhasilan dan potensi perbaikan."
+        ]
+      },
+      {
+        "title": "Staf Kementerian Luar Negeri",
+        "meta": "BEM KEMA IT Telkom Purwokerto · 2024",
+        "images": ["assets/organization/or-bem.webp"],
+        "caption": "Kementerian Luar Negeri BEM KEMA",
+        "paragraphs": [
+          "Kementerian yang mengurus hubungan kampus dengan pihak luar. Pekerjaannya berkisar pada korespondensi dengan organisasi mahasiswa kampus lain, menjembatani undangan dan kunjungan, serta menyiapkan kerja sama untuk acara bersama."
+        ]
+      },
+      {
+        "title": "Tutor BIPA",
+        "meta": "Telkom University Language Center · Nov 2024 – Feb 2025",
+        "images": ["assets/certificates/ct-bipa.webp"],
+        "caption": "Sertifikat tutor BIPA Telkom University Language Center",
+        "paragraphs": [
+          "Mengajar bahasa Indonesia untuk penutur asing, kelas BIPA Level 1 semester ganjil 2024/2025, sepuluh jam pertemuan, di bawah Telkom University Language Center.",
+          "Materi level 1 bergerak dari perkenalan diri, angka, dan kata kerja sehari-hari sampai percakapan sederhana. Tantangannya menjelaskan bahasa Indonesia tanpa banyak bersandar pada bahasa Inggris, supaya peserta terbiasa mendengar dan menjawab langsung."
+        ]
+      },
+      {
+        "title": "Panitia PKKMB",
+        "meta": "Institut Teknologi Telkom Purwokerto · 11–12 September 2023",
+        "images": ["assets/certificates/ct-pkkmb.webp"],
+        "caption": "Sertifikat kepanitiaan PKKMB 2023",
+        "paragraphs": [
+          "Panitia penyambutan mahasiswa baru tingkat institut, dua hari pelaksanaan pada 11–12 September 2023."
+        ]
+      }
+    ]
+  },
+  "bangkit": {
+    "number": "03",
+    "title": "{B}angkit {A}cademy",
+    "note": "Google · GoTo · Traveloka",
+    "items": [
+      {
+        "title": "Goedangin",
+        "meta": "Capstone Bangkit · Cloud Engineer & Backend Developer · Cohort 2024",
+        "images": ["assets/projects/pj-goed.webp", "assets/projects/pj-goed2.webp"],
+        "caption": "Aplikasi Goedangin dan tim capstone",
+        "paragraphs": [
+          "Aplikasi mobile dan web untuk manajemen cold storage sekaligus prediksi harga komoditas.",
+          "Saya membangun RESTful API untuk pengelolaan data dan pemantauan harga, lalu men-deploy aplikasinya ke cloud dengan uptime 99,95 persen."
+        ],
+        "stack": ["Cloud Computing", "REST API", "Deployment"]
+      },
+      {
+        "title": "Jalur Cloud Computing",
+        "meta": "Cohort 2024 · 6 September – 31 Desember 2024",
+        "images": ["assets/projects/pj-goed2.webp"],
+        "caption": "Tim Goedangin, tujuh orang lintas learning path",
+        "paragraphs": [
+          "Program dari Kampus Merdeka bersama Google, GoTo, dan Traveloka. Peserta dibagi ke tiga jalur, dan saya masuk jalur Cloud Computing bersama satu rekan setim.",
+          "Lulus dengan status Full Graduate. Jalurnya berisi Google Cloud Engineer Learning Path, DevOps Engineer & SRE Learning Path, Google Cloud Computing Foundations, Application Development with Cloud Run, Applied Machine Learning for Cloud Engineer, dasar web dan JavaScript, sampai persiapan sertifikasi Associate Cloud Engineer.",
+          "Di luar kelas teknis ada 230 jam Soft Skill & Career Development yang menutup program, dari time management dan critical thinking sampai professional branding dan interview communication."
+        ],
+        "stack": ["Google Cloud", "DevOps & SRE", "Cloud Run", "Full Graduate"]
+      }
+    ]
+  },
+  "honours": {
+    "number": "04",
+    "title": "{P}restasi, sertifikat & publikasi",
+    "items": [
+      {
+        "title": "Juara 1 Indonesian Science Competition Expo",
+        "meta": "Tingkat nasional · 2023",
+        "paragraphs": [
+          "Cabang bahasa Indonesia, kompetisi tingkat nasional yang diselenggarakan Global Youth and Peace Education Movement."
+        ]
+      }
+    ],
+    "certificatesTitle": "Sertifikat",
+    "certificates": [
+      {
+        "image": "assets/certificates/ct-bangkit.webp",
+        "caption": "Bangkit Academy, Cloud Computing · Full Graduate · Google, GoTo, Traveloka · 2025"
+      },
+      {
+        "image": "assets/certificates/ct-bangkit2.webp",
+        "caption": "Bangkit Student Learning Achievement · rincian nilai 13 mata kelas · 2025"
+      },
+      {
+        "image": "assets/certificates/ct-bipa.webp",
+        "caption": "Tutor BIPA Level 1 · Telkom University Language Center · 2025"
+      },
+      {
+        "image": "assets/certificates/ct-revou.webp",
+        "caption": "Intro to Data Analytics · RevoU · 2026"
+      },
+      {
+        "image": "assets/certificates/ct-porsema.webp",
+        "caption": "Bendahara 1 PORSEMA · Telkom University Purwokerto · 2024"
+      },
+      {
+        "image": "assets/certificates/ct-esport.webp",
+        "caption": "Staff PR & Sponsorship, Student War Season 1 · ITTP Esports · 2024"
+      },
+      {
+        "image": "assets/certificates/ct-fls2n.webp",
+        "caption": "Panitia Staff Acara FLS2N SMA/MA Kabupaten Banyumas · 2024"
+      },
+      {
+        "image": "assets/certificates/ct-kultum.webp",
+        "caption": "Panitia KULTUM: Kuliah Studi Machine Learning · HMSD ITTP · 2024"
+      },
+      {
+        "image": "assets/certificates/ct-pkkmb.webp",
+        "caption": "Panitia PKKMB · Institut Teknologi Telkom Purwokerto · 2023"
+      }
+    ]
+  },
+  "contact": {
+    "title": "{M}ari berkenalan",
+    "text": "Terbuka untuk peran junior di cloud, DevOps, dan data. Bersedia relokasi.",
+    "links": [
+      { "label": "Email", "url": "mailto:[email]" },
+      { "label": "LinkedIn", "url": "[url LinkedIn]" },
+      { "label": "GitHub", "url": "[url GitHub]" }
+    ]
+  }
+}

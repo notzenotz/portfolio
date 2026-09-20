@@ -1,0 +1,8 @@
+# Same line endings in the repo no matter which OS edits a file
+* text=auto
+
+*.webp binary
+*.gif  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary

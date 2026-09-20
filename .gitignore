@@ -1,0 +1,13 @@
+# Terraform: local working files, state, and your own values (email)
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.*
+infra/*.tfplan
+infra/terraform.tfvars
+crash.log
+
+# Windows / macOS / editor clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

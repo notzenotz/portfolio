@@ -1,0 +1,83 @@
+name: Deploy portfolio
+
+# Every push to main that touches the site goes live automatically.
+# "Run workflow" on the Actions tab deploys by hand.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "scripts/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # lets the job request an OIDC token, which AWS trades for temporary credentials
+
+# never let two deploys upload at the same time
+concurrency:
+  group: deploy-portfolio
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: ap-southeast-1
+  S3_BUCKET: ${{ vars.S3_BUCKET }}
+  DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v7
+
+      - name: Cek content.json dan semua gambar
+        run: python3 scripts/check_content.py site
+
+      - name: Cek variabel repo sudah diisi
+        env:
+          ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+        run: |
+          missing=0
+          for name in ROLE_ARN S3_BUCKET DISTRIBUTION_ID; do
+            if [ -z "${!name}" ]; then missing=1; fi
+          done
+          if [ "$missing" = 1 ]; then
+            echo "::error::Variabel AWS_ROLE_ARN, S3_BUCKET, dan CLOUDFRONT_DISTRIBUTION_ID harus diisi di Settings > Secrets and variables > Actions > Variables."
+            exit 1
+          fi
+
+      - name: Masuk ke AWS lewat OIDC
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # Images: browsers may keep them for a day. Give a changed image a new file name.
+      # assets/_unused holds files no code uses, so they stay off the live site.
+      - name: Upload gambar
+        run: >
+          aws s3 sync site/assets "s3://$S3_BUCKET/assets"
+          --delete --exclude "_unused/*" --cache-control "public, max-age=86400"
+
+      # index.html and content.json: browsers always check for a newer copy first
+      - name: Upload index.html dan content.json
+        run: >
+          aws s3 sync site "s3://$S3_BUCKET"
+          --delete --exclude "assets/*" --cache-control "no-cache"
+
+      - name: Kosongkan cache CloudFront
+        run: |
+          id=$(aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" \
+                 --paths "/*" --query Invalidation.Id --output text)
+          echo "Invalidation $id, menunggu sampai selesai..."
+          aws cloudfront wait invalidation-completed --distribution-id "$DISTRIBUTION_ID" --id "$id"
+
+      - name: Cek situs live
+        run: |
+          domain=$(aws cloudfront get-distribution --id "$DISTRIBUTION_ID" \
+                     --query Distribution.DomainName --output text)
+          python3 scripts/smoke_test.py "https://$domain"
+          echo "### Situs live: https://$domain" >> "$GITHUB_STEP_SUMMARY"
