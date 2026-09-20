@@ -40,7 +40,7 @@ Isi `site/assets/`:
 git push ──> GitHub Actions ──(OIDC)──> IAM role ──> S3 (private) ──> CloudFront (HTTPS) ──> pengunjung
 ```
 
-- **Tanpa access key.** Di laptop, AWS CLI dan Terraform login lewat `aws login`. GitHub Actions memakai OIDC, dan role-nya hanya bisa dipakai oleh branch `main` di repo ini.
+- **Tanpa access key.** Di laptop, AWS CLI dan Terraform login lewat `aws login`. GitHub Actions memakai OIDC, dan role-nya hanya bisa dipakai oleh branch `main` di repo ini. Repo dicocokkan lewat nomor ID akun dan ID repo, bukan cuma nama, jadi kalau suatu saat namanya dipakai orang lain, role ini tetap tidak bisa dipakai.
 - **Bucket S3 private.** Satu-satunya yang boleh membaca isinya adalah distribution CloudFront milik situs ini, lewat Origin Access Control.
 - **Hak akses seperlunya.** Role deploy cuma boleh menulis ke bucket situs dan mengosongkan cache distribution ini. Tidak ada izin lain.
 - **Cache.** Browser menyimpan gambar selama 1 hari. `index.html` dan `content.json` selalu dicek ulang, dan cache CloudFront dikosongkan di setiap deploy.

@@ -15,6 +15,28 @@ variable "github_repo" {
   default     = "portfolio"
 }
 
+# Repos created after 15 July 2026 get OIDC subject claims that carry these IDs.
+# Get both with: gh api repos/OWNER/REPO --jq ".owner.id, .id"
+variable "github_owner_id" {
+  description = "Numeric ID of the GitHub account that owns the repository."
+  type        = string
+
+  validation {
+    condition     = can(regex("^[0-9]+$", var.github_owner_id))
+    error_message = "github_owner_id harus berupa angka. Ambil dengan: gh api repos/OWNER/REPO --jq .owner.id"
+  }
+}
+
+variable "github_repo_id" {
+  description = "Numeric ID of the repository."
+  type        = string
+
+  validation {
+    condition     = can(regex("^[0-9]+$", var.github_repo_id))
+    error_message = "github_repo_id harus berupa angka. Ambil dengan: gh api repos/OWNER/REPO --jq .id"
+  }
+}
+
 variable "alert_email" {
   description = "Address that receives the monthly budget alerts."
   type        = string

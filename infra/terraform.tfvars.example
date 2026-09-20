@@ -1,9 +1,15 @@
-# Salin jadi terraform.tfvars, lalu isi alert_email.
+# Salin jadi terraform.tfvars, lalu isi alert_email, github_owner_id, dan github_repo_id.
 # terraform.tfvars tidak ikut ter-commit (ada di .gitignore), jadi email kamu tidak masuk repo publik.
 
 github_owner = "notzenotz"
 github_repo  = "portfolio"
 alert_email  = "isi-email-kamu@contoh.com"
+
+# Nomor ID akun dan repo GitHub. Ambil dengan:
+#   gh api repos/notzenotz/portfolio --jq ".owner.id, .id"
+# Baris pertama hasilnya untuk github_owner_id, baris kedua untuk github_repo_id.
+github_owner_id = "isi-id-akun"
+github_repo_id  = "isi-id-repo"
 
 # Email peringatan dikirim kalau pemakaian bulan ini lewat 80% dari angka ini (USD).
 # monthly_budget_usd = 5

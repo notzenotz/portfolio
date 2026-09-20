@@ -20,11 +20,13 @@ data "aws_iam_policy_document" "github_trust" {
       values   = ["sts.amazonaws.com"]
     }
 
-    # only this repository, and only its main branch
+    # Only this repository, and only its main branch. The subject is pinned to the
+    # account and repository IDs (GitHub's immutable subject format), so if the
+    # name is ever deleted and registered again by someone else, it still won't match.
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_owner}/${var.github_repo}:ref:refs/heads/main"]
+      values   = ["repo:${var.github_owner}@${var.github_owner_id}/${var.github_repo}@${var.github_repo_id}:ref:refs/heads/main"]
     }
   }
 }
