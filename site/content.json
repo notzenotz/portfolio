@@ -49,8 +49,8 @@
     "title": "{T}able of {C}ontents",
     "subtitle": "empat bagian, satu kolam",
     "items": [
-      { "number": "01", "title": "Project kuliah", "note": "6 project", "href": "#projects" },
-      { "number": "02", "title": "Organisasi & kepanitiaan", "note": "4 peran", "href": "#org" },
+      { "number": "01", "title": "Project kuliah", "note": "9 project", "href": "#projects" },
+      { "number": "02", "title": "Organisasi & kepanitiaan", "note": "10 peran", "href": "#org" },
       { "number": "03", "title": "Bangkit Academy", "note": "final project", "href": "#bangkit" },
       { "number": "04", "title": "Prestasi & publikasi", "note": "2 catatan", "href": "#honours" }
     ]
@@ -60,6 +60,27 @@
     "title": "{P}roject kuliah",
     "note": "2022 – 2026",
     "items": [
+      {
+        "title": "Hosting Portofolio di AWS",
+        "meta": "Project pribadi · Cloud & DevOps · 2026",
+        "images": ["assets/projects/pj-aws-hosting.webp"],
+        "caption": "Alur deploy dari git push sampai CloudFront",
+        "paragraphs": [
+          "Situs portofolio ini di-host di Amazon S3 dengan CloudFront di depannya. Bucket-nya private, dan satu-satunya yang boleh membacanya adalah CloudFront lewat Origin Access Control. Semua infrastrukturnya saya tulis dengan Terraform, dari bucket, distribution, role deploy, sampai budget alert, dengan state yang disimpan di S3.",
+          "Setiap push ke branch main langsung di-deploy oleh GitHub Actions tanpa access key. Workflow login ke AWS lewat OIDC, dan role-nya hanya bisa dipakai oleh repo ini di branch main. Izinnya juga dibatasi: upload ke satu bucket dan mengosongkan cache satu distribution, tidak lebih.",
+          "Deploy pertama sempat ditolak AWS. Ternyata sejak Juli 2026 GitHub mengubah format identitas OIDC untuk repo baru, sehingga sekarang ikut membawa nomor ID akun dan ID repo. Trust policy saya sesuaikan ke format itu, dan role-nya jadi lebih aman karena tidak bisa dipakai walaupun nama repo ini suatu saat diambil orang lain."
+        ],
+        "points": [
+          "content.json dan semua path gambar dicek otomatis sebelum upload",
+          "Situs live dicek otomatis sesudah setiap deploy",
+          "Email peringatan kalau biaya bulanan mendekati 5 USD"
+        ],
+        "stack": ["AWS S3", "CloudFront", "IAM OIDC", "Terraform", "GitHub Actions"],
+        "link": {
+          "url": "https://github.com/notzenotz/portfolio",
+          "text": "github.com/notzenotz/portfolio"
+        }
+      },
       {
         "title": "SIRAMBA",
         "meta": "Capstone Project · Backend & Integrasi Sistem · 2025–2026",
@@ -175,10 +196,13 @@
     ],
     "shots": [
       {
-        "image": "assets/thesis/grafana-placeholder.svg",
-        "caption": "Dashboard Grafana saat perpindahan trafik — ganti dengan tangkapan layar milikmu"
+        "image": "assets/thesis/th-load.webp",
+        "caption": "Load Test 100 VU: p95 response time di lima percobaan, semuanya jauh di bawah ambang 2.000 ms"
       },
-      { "image": "assets/thesis/k6-placeholder.svg", "caption": "Ringkasan hasil uji beban k6" }
+      {
+        "image": "assets/thesis/th-stress.webp",
+        "caption": "Stress Test 400 VU: latensinya setara, tapi hanya Canary yang otomatis rollback saat metrik menembus ambang"
+      }
     ]
   },
   "posters": {
@@ -201,6 +225,11 @@
         "title": "KULTUM: Kuliah Studi Machine Learning",
         "meta": "INCUBIX x HMSD ITTP · 2024",
         "image": "assets/posters/po-kultum.webp"
+      },
+      {
+        "title": "Menu Aroma Bumi Bakery",
+        "meta": "Desain menu UMKM · Brebes · 2026",
+        "image": "assets/posters/po-aromabumi.webp"
       }
     ]
   },
@@ -302,8 +331,11 @@
       {
         "title": "Tutor BIPA",
         "meta": "Telkom University Language Center · Nov 2024 – Feb 2025",
-        "images": ["assets/certificates/ct-bipa.webp"],
-        "caption": "Sertifikat tutor BIPA Telkom University Language Center",
+        "images": [
+          "assets/organization/or-bipa1.webp",
+          "assets/organization/or-bipa2.webp"
+        ],
+        "caption": "Dokumentasi kegiatan bersama peserta BIPA, salah satunya di Pasar Wage",
         "paragraphs": [
           "Mengajar bahasa Indonesia untuk penutur asing, kelas BIPA Level 1 semester ganjil 2024/2025, sepuluh jam pertemuan, di bawah Telkom University Language Center.",
           "Materi level 1 bergerak dari perkenalan diri, angka, dan kata kerja sehari-hari sampai percakapan sederhana. Tantangannya menjelaskan bahasa Indonesia tanpa banyak bersandar pada bahasa Inggris, supaya peserta terbiasa mendengar dan menjawab langsung."
@@ -339,8 +371,8 @@
       {
         "title": "Jalur Cloud Computing",
         "meta": "Cohort 2024 · 6 September – 31 Desember 2024",
-        "images": ["assets/projects/pj-goed2.webp"],
-        "caption": "Tim Goedangin, tujuh orang lintas learning path",
+        "images": ["assets/projects/pj-bangkit-cert.webp"],
+        "caption": "Sertifikat kelulusan Bangkit, jalur Cloud Computing",
         "paragraphs": [
           "Program dari Kampus Merdeka bersama Google, GoTo, dan Traveloka. Peserta dibagi ke tiga jalur, dan saya masuk jalur Cloud Computing bersama satu rekan setim.",
           "Lulus dengan status Full Graduate. Jalurnya berisi Google Cloud Engineer Learning Path, DevOps Engineer & SRE Learning Path, Google Cloud Computing Foundations, Application Development with Cloud Run, Applied Machine Learning for Cloud Engineer, dasar web dan JavaScript, sampai persiapan sertifikasi Associate Cloud Engineer.",
@@ -357,9 +389,26 @@
       {
         "title": "Juara 1 Indonesian Science Competition Expo",
         "meta": "Tingkat nasional · 2023",
+        "images": ["assets/honours/hn-isce.webp"],
+        "caption": "Pengumuman pemenang dari Global Youth and Peace Education Movement",
         "paragraphs": [
-          "Cabang bahasa Indonesia, kompetisi tingkat nasional yang diselenggarakan Global Youth and Peace Education Movement."
+          "Cabang bahasa Indonesia jenjang universitas, kompetisi tingkat nasional yang diselenggarakan Global Youth and Peace Education Movement."
         ]
+      },
+      {
+        "title": "Sistem Smart Doorbell Touchless Berbasis Arduino Uno",
+        "meta": "Publikasi · Prosiding Seminar Nasional Sains Data (SENADA) · 2024",
+        "images": ["assets/honours/hn-doorbell.webp"],
+        "caption": "Halaman paper di Semantic Scholar",
+        "paragraphs": [
+          "Bel pintu berbasis Arduino Uno yang bisa diaktifkan tanpa disentuh. Sensor PIR mendeteksi gerakan, jadi tamu tidak perlu menekan tombol. Tujuannya menambah kenyamanan dan keamanan rumah sekaligus mengurangi risiko penularan penyakit lewat kontak dengan permukaan benda.",
+          "Ditulis bersama Kyla Azzahra Kinan dan Inra Sepriadi Saragih, dan terbit pada 26 September 2024 di prosiding SENADA, UPN \"Veteran\" Jawa Timur."
+        ],
+        "stack": ["Arduino Uno", "Sensor PIR", "IoT"],
+        "link": {
+          "url": "https://doi.org/10.33005/senada.v4i1.258",
+          "text": "doi.org/10.33005/senada.v4i1.258"
+        }
       }
     ],
     "certificatesTitle": "Sertifikat",

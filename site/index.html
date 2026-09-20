@@ -646,6 +646,7 @@ const held = [];                               /* keeps the preloaded frames in 
 
 function preload(src) {
   const im = new Image();
+  im.fetchPriority = 'high';
   im.src = src;
   held.push(im);
   return im.decode();
@@ -670,13 +671,18 @@ function problem(err) {
 }
 
 async function boot() {
-  const res = await fetch('content.json');
+  const got = fetch('content.json');
+  /* The ornaments don't depend on content.json, so start them as soon as the page
+     itself has loaded (not earlier: the motion code must still start after that event). */
+  await new Promise(r => document.readyState === 'complete' ? r() : addEventListener('load', r, { once: true }));
+  const decor = Object.values(IMG).map(src => preload(src).catch(() => {}));
+  const res = await got;
   if (!res.ok) throw new Error(`content.json tidak ditemukan (HTTP ${res.status})`);
   const C = await res.json();
   render(C);
   void document.body.offsetHeight;             /* lay the text out once so its fonts start loading */
   await Promise.race([
-    Promise.allSettled([document.fonts.ready, ...Object.values(IMG).map(preload)]),
+    Promise.allSettled([document.fonts.ready, ...decor]),
     new Promise(r => setTimeout(r, 4000))      /* never hold the page longer than this */
   ]);
   return C;

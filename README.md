@@ -29,7 +29,8 @@ Isi `site/assets/`:
 | `organization/` | foto organisasi dan kepanitiaan |
 | `certificates/` | sertifikat |
 | `posters/` | poster design |
-| `thesis/` | gambar di bagian skripsi (masih placeholder) |
+| `thesis/` | grafik hasil uji di bagian skripsi |
+| `honours/` | foto di kartu prestasi dan publikasi |
 | `tools/` | ikon Skills & Tools |
 | `decor/` | ornamen dan frame animasi: teratai, koi, kupu-kupu, bingkai foto, air kolam |
 | `_unused/` | 12 frame koi lama yang tidak dipakai kode mana pun, tidak ikut di-upload |
