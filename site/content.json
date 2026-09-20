@@ -207,12 +207,12 @@
     ],
     "shots": [
       {
-        "image": "assets/thesis/th-load.webp",
-        "caption": "Load Test 100 VU: p95 response time di lima percobaan, semuanya jauh di bawah ambang 2.000 ms"
+        "image": "assets/thesis/th-arch.webp",
+        "caption": "Arsitektur pengujian: k6 mengirim beban lewat Istio, Flagger menggeser trafik ke versi canary sambil memantau metrik di Prometheus"
       },
       {
-        "image": "assets/thesis/th-stress.webp",
-        "caption": "Stress Test 400 VU: latensinya setara, tapi hanya Canary yang otomatis rollback saat metrik menembus ambang"
+        "image": "assets/thesis/th-stress-pro.webp",
+        "caption": "Stress Test 400 VU: latensi p95 kedua strategi setara, tapi hanya Canary yang otomatis rollback di kelima percobaan"
       }
     ]
   },
