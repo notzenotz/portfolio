@@ -138,3 +138,7 @@ Soal `meta`: preview link di WhatsApp atau LinkedIn membaca `<title>` dan `<meta
 ## Yang sengaja tidak diatur dari JSON
 
 Gambar di `assets/decor/` adalah bagian dari desain dan animasi, jadi kodenya memanggil nama file secara langsung. Kalau mau mengganti salah satunya, timpa file dengan nama yang sama. Gambar vektor yang digambar langsung dengan kode (sulur di sekitar foto, amplop, daun teratai, kelopak yang jatuh) tetap ada di `index.html`.
+
+## Kredit ikon
+
+Diagram arsitektur di `assets/projects/pj-aws-arch.webp` memakai [AWS Architecture Icons](https://aws.amazon.com/architecture/icons/) (© Amazon Web Services, CC BY-ND 2.0, tidak diubah), ikon [Octicons](https://github.com/primer/octicons) dari GitHub (MIT), dan logo Terraform dari [HashiCorp Flight Icons](https://github.com/hashicorp/design-system) (MPL-2.0). AWS, GitHub, dan Terraform adalah merek dagang pemiliknya masing-masing.

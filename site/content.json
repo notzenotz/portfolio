@@ -63,8 +63,8 @@
       {
         "title": "Hosting Portofolio di AWS",
         "meta": "Project pribadi · Cloud & DevOps · 2026",
-        "images": ["assets/projects/pj-aws-hosting.webp"],
-        "caption": "Alur deploy dari git push sampai CloudFront",
+        "images": ["assets/projects/pj-aws-arch.webp"],
+        "caption": "Diagram arsitektur hosting portofolio ini",
         "paragraphs": [
           "Situs portofolio ini di-host di Amazon S3 dengan CloudFront di depannya. Bucket-nya private, dan satu-satunya yang boleh membacanya adalah CloudFront lewat Origin Access Control. Semua infrastrukturnya saya tulis dengan Terraform, dari bucket, distribution, role deploy, sampai budget alert, dengan state yang disimpan di S3.",
           "Setiap push ke branch main langsung di-deploy oleh GitHub Actions tanpa access key. Workflow login ke AWS lewat OIDC, dan role-nya hanya bisa dipakai oleh repo ini di branch main. Izinnya juga dibatasi: upload ke satu bucket dan mengosongkan cache satu distribution, tidak lebih.",
