@@ -133,7 +133,7 @@ Pakai huruf kecil dan tanda hubung untuk nama file, tanpa spasi. Format `.webp` 
 | `honours` | prestasi (`items`) dan sertifikat (`certificates`) |
 | `contact.links` | tombol Email, LinkedIn, GitHub di bagian penutup |
 
-Soal `meta`: preview link di WhatsApp atau LinkedIn membaca `<title>` dan `<meta name="description">` yang tertulis langsung di `index.html`, bukan dari JSON. Jadi kalau `meta` diubah, samakan juga dua baris itu.
+Soal `meta`: preview link di WhatsApp atau LinkedIn membaca `<title>` dan `<meta name="description">` yang tertulis langsung di `index.html`, bukan dari JSON. Jadi kalau `meta` diubah, samakan juga dua baris itu. Gambar preview-nya ada di `assets/og-image.jpg` (1200×627), dan alamatnya ditulis lengkap di tag `og:image` dan `og:url`. Kalau nanti pakai domain sendiri, ganti alamat di dua tag itu juga.
 
 ## Yang sengaja tidak diatur dari JSON
 

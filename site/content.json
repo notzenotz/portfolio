@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Zenitha Portfolio",
-    "description": "Portofolio Winodya Zenitha — Teknik Informatika, cloud & DevOps."
+    "description": "Portofolio Winodya Zenitha: cloud, DevOps, dan data. Project Kubernetes, Terraform, AWS, dan Google Cloud."
   },
   "cover": { "title": "{Z}enitha {P}ortfolio", "scrollCue": "scroll" },
   "about": {
