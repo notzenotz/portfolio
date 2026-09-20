@@ -86,6 +86,9 @@ a{color:inherit}
 .edu dt{font-weight:700;font-size:.95rem}
 .edu dd{margin:.1rem 0 1rem;color:var(--silt);font-size:.88rem}
 .edu dd span{display:inline-block;margin-right:1.1rem}
+.soft dd.stack{margin:.5rem 0 .2rem;gap:.4rem}
+.soft .stack span{margin:0;font-size:.8rem;padding:.26rem .72rem}
+.soft + .edu{margin-top:1.1rem}
 .toolwrap h3{font-size:.82rem;letter-spacing:.07em;color:var(--silt);font-weight:600;
   font-variation-settings:'SOFT' 0,'WONK' 0;margin-bottom:.9rem}
 .tools{display:flex;flex-wrap:wrap;gap:.5rem}
@@ -377,6 +380,7 @@ a{color:inherit}
       <p class="role" data-bind="about.role"></p>
       <p class="type"></p>
 
+      <dl class="edu soft"><dt></dt><dd class="stack"></dd></dl>
       <dl class="edu"></dl>
 
     </div>
@@ -601,10 +605,15 @@ function render(C) {
 
   /* about: the bio is plain text, the script below lays it out word by word */
   $('.bio .type').dataset.text = C.about?.bio ?? '';
+  const soft = C.about?.softSkills;
+  if (soft?.items?.length) {
+    $('.bio .soft dt').textContent = soft.title || 'Soft skills';
+    stack($('.bio .soft dd'), soft.items);
+  } else $('.bio .soft').remove();
   each(C.about?.education, d => {
     const dd = el('dd');
     each(d.details, t => dd.append(el('span', null, t)));
-    $('.bio .edu').append(el('dt', null, d.title), dd);
+    $('.bio .edu:not(.soft)').append(el('dt', null, d.title), dd);
   });
   each(C.about?.photos, (p, i) => $('.portrait .photo').append(photo(p.image, i === 0, p.alt || '')));
 

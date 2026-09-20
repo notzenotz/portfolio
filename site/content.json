@@ -7,7 +7,18 @@
   "about": {
     "name": "{W}inodya {Z}enitha",
     "role": "Cloud & DevOps · Data",
-    "bio": "Fresh graduate Teknik Informatika yang betah berlama-lama di terminal. Fokus saya di Kubernetes, service mesh, dan observability, memastikan sebuah rilis bisa naik ke produksi tanpa membuat penggunanya sadar ada yang berubah. Skripsi saya membandingkan dua strategi deployment di Google Kubernetes Engine, dan dari situ saya jatuh cinta pada pekerjaan yang hasilnya diukur, bukan dikira-kira. Kebiasaan mengukur itu juga yang membawa saya ke data. Saya terbiasa membersihkan data mentah, menyusunnya jadi dashboard di Power BI, lalu menariknya jadi temuan yang bisa dipakai orang untuk mengambil keputusan. Dua sisi ini nyambung: satu menjaga sistem tetap sehat, satunya membaca apa yang sistem itu hasilkan.",
+    "bio": "Fresh graduate S1 Teknik Informatika Telkom University Purwokerto dengan fokus di cloud dan DevOps. Saya terbiasa bekerja dengan Kubernetes, Istio, Prometheus, dan Grafana, dan di skripsi saya membandingkan strategi Rolling Update dan Canary Deployment di Google Kubernetes Engine. Saya lulusan Bangkit Academy jalur Cloud Computing, dan hosting portofolio ini saya bangun sendiri di AWS dengan Terraform dan GitHub Actions. Di sisi data, saya mengolah data mentah menjadi dashboard Power BI yang siap dipakai untuk mengambil keputusan. Terbuka untuk posisi Cloud Engineer, DevOps Engineer, dan Data Analyst.",
+    "softSkills": {
+      "title": "Soft skills",
+      "items": [
+        "Komunikasi",
+        "Kepemimpinan",
+        "Kerja tim",
+        "Problem solving",
+        "Ketelitian",
+        "Manajemen waktu"
+      ]
+    },
     "education": [
       {
         "title": "S1 Teknik Informatika · Telkom University Purwokerto",

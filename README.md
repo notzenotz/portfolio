@@ -125,7 +125,7 @@ Pakai huruf kecil dan tanda hubung untuk nama file, tanpa spasi. Format `.webp` 
 |---|---|
 | `meta` | judul tab browser dan deskripsi halaman |
 | `cover` | nama besar di halaman pembuka dan tulisan "scroll" |
-| `about` | nama, peran, bio, pendidikan, dan dua foto profil yang bergantian |
+| `about` | nama, peran, bio, soft skills (`softSkills.items`), pendidikan, dan dua foto profil yang bergantian |
 | `skills.tools` | ikon Skills & Tools. Tanpa `icon`, yang tampil dua huruf awal nama. Susunan kerucutnya dirancang untuk 17 ikon, jadi kalau jumlahnya beda jauh, bentuknya ikut berubah |
 | `toc` | daftar isi. Angka seperti "6 project" masih ditulis manual |
 | `thesis` | bagian skripsi, termasuk dua gambar di `shots` |

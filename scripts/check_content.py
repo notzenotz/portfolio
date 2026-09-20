@@ -105,6 +105,12 @@ for i, p in enumerate(data.get("about", {}).get("photos", [])):
 if not isinstance(data.get("about", {}).get("bio"), str):
     problem("about.bio harus berupa teks")
 
+soft = data.get("about", {}).get("softSkills")
+if soft is not None and expect(soft, "object", "about.softSkills"):
+    if "title" in soft:
+        expect(soft["title"], "text", "about.softSkills.title")
+    text_list(soft.get("items"), "about.softSkills.items")
+
 
 # ---------------------------------------------------------------- image paths
 def exists_exact_case(rel):
