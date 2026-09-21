@@ -32,7 +32,7 @@ Isi `site/assets/`:
 | `thesis/` | grafik hasil uji di bagian skripsi |
 | `honours/` | foto di kartu prestasi dan publikasi |
 | `tools/` | ikon Skills & Tools |
-| `decor/` | ornamen dan frame animasi: teratai, koi, kupu-kupu, bingkai foto, air kolam |
+| `decor/` | ornamen dan frame animasi: teratai, koi, kupu-kupu, bingkai foto, air kolam, dan tiga gambar titik-titik di belakang kartu project (`dots-*.webp`) |
 | `_unused/` | 12 frame koi lama yang tidak dipakai kode mana pun, tidak ikut di-upload |
 
 ## Cara kerja deploy
@@ -105,6 +105,8 @@ Salin satu blok di `projects.items`, lalu taruh di posisi yang kamu mau. Urutan 
 ```
 
 Semua bagian boleh dihapus kecuali `title`. Kalau `images` berisi lebih dari satu foto, fotonya bergantian sendiri. Bentuk kartu yang sama dipakai di `organization.items`, `bangkit.items`, dan `honours.items`.
+
+Kartu project tampil tiga per baris, di laptop maupun di HP. Di HP kartunya cuma menampilkan foto dan judul, lalu isi lengkapnya muncul di jendela kecil waktu kartu diketuk. Jadi judul yang pendek lebih enak dilihat di HP.
 
 ## Mengganti foto
 

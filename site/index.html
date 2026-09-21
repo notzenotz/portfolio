@@ -282,6 +282,66 @@ a{color:inherit}
   #org .card > :not(figure),#bangkit .card > :not(figure){grid-column:1}
 }
 
+/* project cards: bold outline and a hard offset shadow, three to a row on every screen */
+#project-cards{--line:#2A1A12;padding:clamp(6.5rem,14vw,11.5rem) 0 clamp(6rem,13vw,11rem)}
+#project-cards .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.3rem,2.5vw,2.1rem)}
+#project-cards .card{background:#FFFCF7;border:3px solid var(--line);border-radius:22px;
+  box-shadow:7px 8px 0 var(--line);padding:1rem 1rem 1.15rem;
+  transition:transform .18s ease,box-shadow .18s ease}
+@media(hover:hover) and (min-width:861px){
+  #project-cards .card:hover{transform:translate(-3px,-3px);box-shadow:10px 11px 0 var(--line)}}
+:is(#project-cards,.pdlg) .card figure{margin:0 0 .9rem}
+:is(#project-cards,.pdlg) .card .slides{border:2px solid var(--line);border-radius:14px;background:#F3E6DA}
+:is(#project-cards,.pdlg) .card figure figcaption{margin-top:.45rem}
+:is(#project-cards,.pdlg) .card h3{font-size:1.08rem;font-weight:800;color:var(--line)}
+:is(#project-cards,.pdlg) .card .meta{width:fit-content;max-width:100%;margin:.55rem 0 .8rem;
+  padding:.16rem .7rem;border:2px solid var(--line);border-radius:999px;background:var(--wheat);
+  color:var(--line);font-size:.66rem;font-weight:700;letter-spacing:.04em;line-height:1.45}
+:is(#project-cards,.pdlg) .card .stack{padding-top:.3rem}
+:is(#project-cards,.pdlg) .card .stack span{background:var(--rose);border:1.5px solid var(--line);
+  color:var(--line);font-weight:700;padding:.12rem .5rem}
+:is(#project-cards,.pdlg) .card p.link a{color:var(--line);font-weight:700;border-bottom:2px solid var(--lotus-deep)}
+#project-cards .card .more{display:none}
+
+/* dotted drawings behind the cards: a rabbit leaping towards the stars, a swirl to land on */
+#project-cards .dotart{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#project-cards .dotart img{position:absolute;height:auto;opacity:.88}
+#project-cards .dotart .d1{width:clamp(92px,13vw,190px);top:clamp(.5rem,1.8vw,1.4rem);
+  left:calc((100% - var(--w)) / 2 + var(--w) * .1);rotate:-5deg}
+#project-cards .dotart .d2{width:clamp(54px,7.2vw,106px);top:clamp(.3rem,1vw,.9rem);
+  left:calc((100% - var(--w)) / 2 + var(--w) * .72);rotate:9deg}
+#project-cards .dotart .d3{width:clamp(80px,11vw,162px);bottom:clamp(.4rem,1.4vw,1.1rem);
+  left:calc((100% - var(--w)) / 2 + var(--w) * .56);rotate:-8deg}
+
+/* on narrow screens the cards become small tiles; a tap opens the full card */
+@media(max-width:860px){
+  #project-cards .grid{gap:.75rem .55rem}
+  #project-cards .card{border-width:2px;border-radius:clamp(11px,2.6vw,18px);
+    box-shadow:clamp(3px,.8vw,6px) clamp(4px,1vw,7px) 0 var(--line);
+    padding:.4rem .4rem .5rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  #project-cards .card:active{transform:translate(2px,2px);box-shadow:1px 2px 0 var(--line)}
+  #project-cards .card figure{margin-bottom:.42rem}
+  #project-cards .card .slides{border-width:1.5px;border-radius:8px}
+  #project-cards .card :is(figcaption,.meta,p,ul,.stack){display:none}
+  #project-cards .card h3{font-size:clamp(.68rem,2.3vw,.95rem);line-height:1.25;display:-webkit-box;
+    -webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  #project-cards .card .more{display:block;width:fit-content;margin-top:auto;translate:0 .3rem;
+    padding:.02rem .42rem;border:1.5px solid var(--line);border-radius:999px;background:var(--wheat);
+    color:var(--line);font-size:.58rem;font-weight:700;line-height:1.5}
+}
+.pdlg{width:min(92vw,520px);max-height:86svh;padding:0;overflow:visible;background:#FFFCF7;color:var(--mud);
+  border:3px solid #2A1A12;border-radius:18px;box-shadow:6px 7px 0 #2A1A12}
+.pdlg[open]{animation:pdlg-in .22s ease-out}
+.pdlg::backdrop{background:rgba(42,26,18,.5)}
+.pdlg .in{max-height:calc(86svh - 6px);overflow:auto;overscroll-behavior:contain;border-radius:15px;padding:1rem 1rem 1.1rem}
+.pdlg .card{--line:#2A1A12;background:none;border:0;border-radius:0;padding:0}
+.pdlg .x{position:absolute;top:-15px;right:-11px;z-index:2;width:38px;height:38px;border-radius:50%;
+  border:2.5px solid #2A1A12;background:var(--wheat);color:#2A1A12;font:700 1.25rem/1 Karla,sans-serif;
+  box-shadow:2px 3px 0 #2A1A12;cursor:pointer}
+html.dlg-open{overflow:hidden}
+@keyframes pdlg-in{from{opacity:0;transform:translateY(10px) scale(.97)}}
+@media(prefers-reduced-motion:reduce){.pdlg[open]{animation:none}#project-cards .card{transition:none}}
+
 /* thesis feature */
 #thesis{background:linear-gradient(160deg,#8C5A44 0%,#6B4030 60%,#4E2E22 100%);color:#FBEFE0;padding:clamp(3.6rem,8vw,6.5rem) 0;overflow:hidden}
 #thesis::before{content:"";position:absolute;inset:0;
@@ -460,12 +520,18 @@ a{color:inherit}
   </div>
 </section>
 
-<!-- 01b — the rest of the projects, two to a row -->
+<!-- 01b — the rest of the projects, three to a row -->
 <section class="band alt" id="project-cards">
+  <div class="dotart" aria-hidden="true">
+    <img class="d1" src="assets/decor/dots-rabbit.webp" alt="" width="681" height="653" loading="lazy" decoding="async">
+    <img class="d2" src="assets/decor/dots-stars.webp" alt="" width="291" height="233" loading="lazy" decoding="async">
+    <img class="d3" src="assets/decor/dots-swirl.webp" alt="" width="542" height="538" loading="lazy" decoding="async">
+  </div>
   <div class="wrap">
     <div class="grid" data-cards="projects.items"></div>
   </div>
 </section>
+<dialog class="pdlg" id="pdlg"><button class="x" type="button" aria-label="Tutup">&times;</button><div class="in"></div></dialog>
 
 <!-- 01c — poster design -->
 <section class="band posters" id="posters">
@@ -607,6 +673,43 @@ function card(c) {
   return a;
 }
 
+/* on narrow screens the project cards are small tiles; a tap opens the whole card */
+function projectDialog(items) {
+  const dlg = $('#pdlg'), body = dlg.querySelector('.in');
+  const narrow = matchMedia('(max-width: 860px)');
+  const tiles = [...document.querySelectorAll('#project-cards .card')];
+  let tick;
+  const mark = () => tiles.forEach(t => {
+    if (narrow.matches) { t.setAttribute('role', 'button'); t.tabIndex = 0; t.setAttribute('aria-haspopup', 'dialog'); }
+    else { t.removeAttribute('role'); t.removeAttribute('tabindex'); t.removeAttribute('aria-haspopup'); }
+  });
+  const open = i => {
+    if (!narrow.matches || !items?.[i]) return;
+    body.replaceChildren(card(items[i]));
+    dlg.setAttribute('aria-label', items[i].title || 'Project');
+    dlg.showModal();
+    body.scrollTop = 0;
+    document.documentElement.classList.add('dlg-open');
+    const shots = [...body.querySelectorAll('.slides img')];
+    if (shots.length > 1) {
+      let k = 0;
+      tick = setInterval(() => { shots[k].classList.remove('on'); k = (k + 1) % shots.length; shots[k].classList.add('on'); }, 3400);
+    }
+  };
+  tiles.forEach((t, i) => {
+    t.append(el('span', { class: 'more', 'aria-hidden': 'true' }, 'Detail &rarr;'));
+    t.addEventListener('click', e => { if (!e.target.closest('a')) open(i); });
+    t.addEventListener('keydown', e => {
+      if (narrow.matches && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(i); }
+    });
+  });
+  mark();
+  narrow.addEventListener('change', () => { mark(); if (!narrow.matches && dlg.open) dlg.close(); });
+  dlg.querySelector('.x').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', () => { clearInterval(tick); document.documentElement.classList.remove('dlg-open'); });
+}
+
 function render(C) {
   if (C.meta?.title) document.title = C.meta.title;
   if (C.meta?.description) $('meta[name="description"]').setAttribute('content', C.meta.description);
@@ -614,6 +717,7 @@ function render(C) {
   document.querySelectorAll('[data-bind]').forEach(e => { e.innerHTML = ini(at(C, e.dataset.bind)); });
   document.querySelectorAll('[data-lead]').forEach(e => lead(e, at(C, e.dataset.lead)));
   document.querySelectorAll('[data-cards]').forEach(e => each(at(C, e.dataset.cards), c => e.append(card(c))));
+  projectDialog(C.projects?.items);
 
   /* about: the bio is plain text, the script below lays it out word by word */
   $('.bio .type').dataset.text = C.about?.bio ?? '';
