@@ -32,7 +32,7 @@ Isi `site/assets/`:
 | `thesis/` | grafik hasil uji di bagian skripsi |
 | `honours/` | foto di kartu prestasi dan publikasi |
 | `tools/` | ikon Skills & Tools |
-| `decor/` | ornamen dan frame animasi: teratai, koi, kupu-kupu, bingkai foto, air kolam, dan lima gambar titik-titik di belakang kartu project (`dots-*.webp`) |
+| `decor/` | ornamen dan frame animasi: teratai, koi, kupu-kupu, bingkai foto, air kolam, dan gambar kelinci titik-titik di belakang kartu project (`dots-rabbit.webp`) |
 | `_unused/` | 12 frame koi lama yang tidak dipakai kode mana pun, tidak ikut di-upload |
 
 ## Cara kerja deploy

@@ -287,7 +287,7 @@ a{color:inherit}
 .tiles,.pdlg{--line:#2A1A12;--shade:#6B4030}
 .tiles .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.3rem,2.5vw,2.1rem)}
 #work .grid,#org .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-#project-cards{padding:clamp(9rem,19vw,16rem) 0 clamp(8.5rem,18vw,15rem)}
+#project-cards{padding:clamp(9rem,19vw,16rem) 0 clamp(11.5rem,26vw,24rem)}
 .tiles .card{background:#FFFCF7;border:3px solid var(--line);border-radius:22px;
   box-shadow:7px 8px 0 var(--shade);padding:1rem 1rem 1.05rem;cursor:pointer;
   transition:transform .18s ease,box-shadow .18s ease;-webkit-tap-highlight-color:transparent}
@@ -325,14 +325,11 @@ a{color:inherit}
 #project-cards .dotart img{position:absolute;height:auto}
 #project-cards .dotart .d1{width:clamp(118px,17vw,250px);top:clamp(.5rem,1.4vw,1.2rem);
   left:calc((100% - var(--w)) / 2 + var(--w) * .04);rotate:-5deg}
-#project-cards .dotart .d5{width:clamp(66px,8.8vw,128px);top:clamp(1.4rem,3.2vw,2.8rem);
-  left:calc((100% - var(--w)) / 2 + var(--w) * .47);rotate:6deg}
-#project-cards .dotart .d2{width:clamp(70px,9.5vw,140px);top:clamp(.4rem,1vw,.9rem);
-  left:calc((100% - var(--w)) / 2 + var(--w) * .8);rotate:9deg}
-#project-cards .dotart .d4{width:clamp(110px,15vw,225px);bottom:clamp(1rem,2.6vw,2.4rem);
-  left:calc((100% - var(--w)) / 2 + var(--w) * .07);rotate:4deg}
-#project-cards .dotart .d3{width:clamp(96px,13.5vw,200px);bottom:clamp(.5rem,1.2vw,1rem);
-  left:calc((100% - var(--w)) / 2 + var(--w) * .66);rotate:-8deg}
+/* the same rabbit, mirrored, leaping back from the other side */
+#project-cards .dotart .d2{width:clamp(118px,17vw,250px);top:clamp(.5rem,1.4vw,1.2rem);
+  right:calc((100% - var(--w)) / 2 + var(--w) * .04);scale:-1 1;rotate:5deg}
+#project-cards .dotart .d3{width:clamp(165px,25vw,360px);bottom:clamp(.6rem,1.4vw,1.2rem);
+  left:calc(50% - clamp(165px,25vw,360px) / 2);rotate:-3deg}
 
 @media(max-width:860px){
   .tiles .grid{gap:.8rem .6rem}
@@ -548,10 +545,8 @@ html.dlg-open{overflow:hidden}
 <section class="band alt tiles" id="project-cards">
   <div class="dotart" aria-hidden="true">
     <img class="d1" src="assets/decor/dots-rabbit.webp" alt="" width="681" height="653" loading="lazy" decoding="async">
-    <img class="d2" src="assets/decor/dots-stars.webp" alt="" width="291" height="233" loading="lazy" decoding="async">
-    <img class="d5" src="assets/decor/dots-stars-2.webp" alt="" width="347" height="440" loading="lazy" decoding="async">
-    <img class="d3" src="assets/decor/dots-swirl.webp" alt="" width="542" height="538" loading="lazy" decoding="async">
-    <img class="d4" src="assets/decor/dots-rabbit-2.webp" alt="" width="544" height="384" loading="lazy" decoding="async">
+    <img class="d2" src="assets/decor/dots-rabbit.webp" alt="" width="681" height="653" loading="lazy" decoding="async">
+    <img class="d3" src="assets/decor/dots-rabbit.webp" alt="" width="681" height="653" loading="lazy" decoding="async">
   </div>
   <div class="wrap">
     <div class="grid" data-cards="projects.items"></div>
