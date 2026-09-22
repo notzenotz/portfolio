@@ -3,7 +3,7 @@
     "title": "Zenitha Portfolio",
     "description": "Portofolio Winodya Zenitha: cloud, DevOps, dan data. Project Kubernetes, Terraform, AWS, dan Google Cloud."
   },
-  "cover": { "title": "{Z}enitha {P}ortfolio", "scrollCue": "scroll" },
+  "cover": { "title": "{Z}enitha {P}ortfolio", "scrollCue": "" },
   "about": {
     "name": "{W}inodya {Z}enitha",
     "role": "Cloud & DevOps · Data",
@@ -58,19 +58,65 @@
   },
   "toc": {
     "title": "{T}able of {C}ontents",
-    "subtitle": "empat bagian, satu kolam",
+    "subtitle": "",
     "items": [
-      { "number": "01", "title": "Project kuliah", "note": "9 project", "href": "#projects" },
-      { "number": "02", "title": "Organisasi & kepanitiaan", "note": "10 peran", "href": "#org" },
-      { "number": "03", "title": "Bangkit Academy", "note": "final project", "href": "#bangkit" },
-      { "number": "04", "title": "Prestasi & publikasi", "note": "2 catatan", "href": "#honours" }
+      {
+        "number": "01",
+        "title": "Project kuliah & pribadi",
+        "note": "10 project",
+        "href": "#projects"
+      },
+      { "number": "02", "title": "Pengalaman kerja", "note": "2 posisi", "href": "#work" },
+      { "number": "03", "title": "Organisasi & kepanitiaan", "note": "9 peran", "href": "#org" },
+      { "number": "04", "title": "Bangkit Academy", "note": "final project", "href": "#bangkit" },
+      { "number": "05", "title": "Prestasi & publikasi", "note": "2 catatan", "href": "#honours" }
     ]
   },
   "projects": {
     "number": "01",
-    "title": "{P}roject kuliah",
+    "title": "{P}roject kuliah & pribadi",
     "note": "2022 – 2026",
     "items": [
+      {
+        "title": "Prediksi Churn Nasabah Bank",
+        "meta": "Project pribadi · Data Science · 2026",
+        "images": [
+          "assets/projects/pj-churn-shap.webp",
+          "assets/projects/pj-churn-rate.webp",
+          "assets/projects/pj-churn-cost.webp"
+        ],
+        "caption": "Faktor pendorong churn dari SHAP, tingkat churn per kelompok, dan biaya retensi per threshold",
+        "paragraphs": [
+          "Model yang menebak nasabah bank mana yang akan berhenti, lalu menjelaskan alasannya. Datanya 10.000 nasabah dari Prancis, Jerman, dan Spanyol, dengan tingkat churn 20,4\u00a0persen.",
+          "Sebelum membuat model, setiap temuan diuji dulu dengan chi-square dan Mann-Whitney U. Dari situ ketahuan ada confounding: separuh efek “nasabah bersaldo lebih sering pergi” ternyata datang dari Jerman, satu-satunya negara tanpa nasabah bersaldo nol.",
+          "XGBoost mencapai ROC-AUC 0,864 pada 5-fold cross-validation dan menangkap 75\u00a0persen nasabah yang pergi. Ambang keputusannya dipilih dari hitungan biaya retensi, dan SHAP dipakai untuk menerjemahkan hasil model jadi rekomendasi bisnis."
+        ],
+        "stack": ["Python", "SciPy", "scikit-learn", "XGBoost", "SHAP"],
+        "link": {
+          "url": "https://github.com/notzenotz/bank-churn-prediction",
+          "text": "github.com/notzenotz/bank-churn-prediction"
+        }
+      },
+      {
+        "title": "Churn Risk API dengan CI/CD di AWS",
+        "meta": "Project pribadi · Cloud & DevOps · 2026",
+        "images": [
+          "assets/projects/pj-churnapi-arch.webp",
+          "assets/projects/pj-churnapi-pipeline.webp",
+          "assets/projects/pj-churnapi-blocked.webp"
+        ],
+        "caption": "Arsitektur pipeline, rilis yang berhasil, dan rilis yang ditahan karena test gagal",
+        "paragraphs": [
+          "Model churn dijadikan API dengan FastAPI: kirim data satu nasabah, keluar skor risiko dan labelnya. API ini berjalan di EC2 dan dirilis otomatis setiap ada push ke GitHub.",
+          "CodePipeline menjalankan tiga tahap. CodeBuild memasang library dan menjalankan 7 test pytest, lalu CodeDeploy memasang versi baru ke server dan mengecek /health sebelum rilis dianggap berhasil, dengan rollback otomatis kalau gagal.",
+          "Untuk membuktikan gerbang test-nya bekerja, saya sengaja push kode yang salah. Pipeline berhenti di tahap build dan server tetap menjalankan versi yang benar. Semua layanan memakai IAM role masing-masing tanpa access key, dan akses admin lewat Session Manager tanpa SSH."
+        ],
+        "stack": ["FastAPI", "pytest", "CodePipeline", "CodeBuild", "CodeDeploy", "EC2"],
+        "link": {
+          "url": "https://github.com/notzenotz/churn-risk-api",
+          "text": "github.com/notzenotz/churn-risk-api"
+        }
+      },
       {
         "title": "Hosting Portofolio di AWS",
         "meta": "Project pribadi · Cloud & DevOps · 2026",
@@ -150,16 +196,6 @@
         "stack": ["Power BI", "Power Query", "DAX"]
       },
       {
-        "title": "Website Retha Wedding Organizer",
-        "meta": "Kerja Praktik · 2025",
-        "images": ["assets/projects/pj-retha.webp"],
-        "caption": "Website Retha Wedding Organizer",
-        "paragraphs": [
-          "Website perusahaan dengan dashboard admin untuk mengelola paket, jadwal, dan pemesanan. Dibangun dari nol termasuk perancangan basis data dan pengujian fungsionalitas, dan diserahkan lengkap dengan laporan kerja praktik."
-        ],
-        "stack": ["Laravel 11", "MySQL", "PHP", "Bootstrap"]
-      },
-      {
         "title": "Scentara",
         "meta": "Implementasi Pengujian Perangkat Lunak · 2025",
         "images": ["assets/projects/pj-scent.webp"],
@@ -219,7 +255,7 @@
   "posters": {
     "number": "01b",
     "title": "{P}oster {D}esign",
-    "note": "berganti sendiri",
+    "note": "",
     "label": "Poster design",
     "items": [
       {
@@ -244,8 +280,42 @@
       }
     ]
   },
-  "organization": {
+  "work": {
     "number": "02",
+    "title": "{P}engalaman kerja",
+    "note": "magang & mengajar",
+    "items": [
+      {
+        "title": "Web Developer Intern",
+        "meta": "Retha Wedding Organizer · Kerja Praktik · Okt – Des 2025",
+        "images": ["assets/projects/pj-retha.webp"],
+        "caption": "Website Retha Wedding Organizer",
+        "paragraphs": [
+          "Website perusahaan dengan dashboard admin untuk mengelola paket, jadwal, dan pemesanan. Dibangun dari nol termasuk perancangan basis data dan pengujian fungsionalitas, dan diserahkan lengkap dengan laporan kerja praktik."
+        ],
+        "stack": ["Laravel 11", "MySQL", "PHP", "Bootstrap"]
+      },
+      {
+        "title": "Tutor BIPA",
+        "meta": "Telkom University Language Center · Nov 2024 – Jul 2025",
+        "images": [
+          "assets/organization/or-bipa1.webp",
+          "assets/organization/or-bipa2.webp"
+        ],
+        "caption": "Dokumentasi kegiatan bersama peserta BIPA, salah satunya di Pasar Wage",
+        "paragraphs": [
+          "Mengajar bahasa Indonesia untuk penutur asing di bawah Telkom University Language Center selama dua periode: kelas Level 1 di semester ganjil 2024/2025 (sepuluh jam pertemuan), lalu lanjut mengajar Level 2 di periode berikutnya.",
+          "Materi level 1 bergerak dari perkenalan diri, angka, dan kata kerja sehari-hari sampai percakapan sederhana. Tantangannya menjelaskan bahasa Indonesia tanpa banyak bersandar pada bahasa Inggris, supaya peserta terbiasa mendengar dan menjawab langsung."
+        ],
+        "periods": [
+          { "label": "Periode 1 · Level 1", "date": "Nov 2024 – Feb 2025" },
+          { "label": "Periode 2 · Level 2", "date": "Mar 2025 – Jul 2025" }
+        ]
+      }
+    ]
+  },
+  "organization": {
+    "number": "03",
     "title": "{O}rganisasi & kepanitiaan",
     "note": "peran, bukan sekadar keanggotaan",
     "items": [
@@ -302,7 +372,7 @@
         ]
       },
       {
-        "title": "Panitia",
+        "title": "Koordinator Media dan Publikasi",
         "meta": "KULTUM: Kuliah Studi Machine Learning · 23–24 Maret 2024",
         "images": ["assets/certificates/ct-kultum.webp"],
         "caption": "Sertifikat kepanitiaan KULTUM 2024",
@@ -340,19 +410,6 @@
         ]
       },
       {
-        "title": "Tutor BIPA",
-        "meta": "Telkom University Language Center · Nov 2024 – Feb 2025",
-        "images": [
-          "assets/organization/or-bipa1.webp",
-          "assets/organization/or-bipa2.webp"
-        ],
-        "caption": "Dokumentasi kegiatan bersama peserta BIPA, salah satunya di Pasar Wage",
-        "paragraphs": [
-          "Mengajar bahasa Indonesia untuk penutur asing, kelas BIPA Level 1 semester ganjil 2024/2025, sepuluh jam pertemuan, di bawah Telkom University Language Center.",
-          "Materi level 1 bergerak dari perkenalan diri, angka, dan kata kerja sehari-hari sampai percakapan sederhana. Tantangannya menjelaskan bahasa Indonesia tanpa banyak bersandar pada bahasa Inggris, supaya peserta terbiasa mendengar dan menjawab langsung."
-        ]
-      },
-      {
         "title": "Panitia PKKMB",
         "meta": "Institut Teknologi Telkom Purwokerto · 11–12 September 2023",
         "images": ["assets/certificates/ct-pkkmb.webp"],
@@ -364,7 +421,7 @@
     ]
   },
   "bangkit": {
-    "number": "03",
+    "number": "04",
     "title": "{B}angkit {A}cademy",
     "note": "Google · GoTo · Traveloka",
     "items": [
@@ -394,7 +451,7 @@
     ]
   },
   "honours": {
-    "number": "04",
+    "number": "05",
     "title": "{P}restasi, sertifikat & publikasi",
     "items": [
       {

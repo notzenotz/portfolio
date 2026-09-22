@@ -269,78 +269,102 @@ a{color:inherit}
 @media(max-width:860px){.poster{width:clamp(136px,40vw,190px);
   margin-left:calc(clamp(136px,40vw,190px) / -2)}}
 
-#org .grid,#bangkit .grid{grid-template-columns:1fr;gap:clamp(.9rem,1.8vw,1.4rem)}
-#org .card,#bangkit .card{display:grid;align-items:start;gap:.1rem clamp(1rem,2vw,1.5rem);
+#bangkit .grid{grid-template-columns:1fr;gap:clamp(.9rem,1.8vw,1.4rem)}
+#bangkit .card{display:grid;align-items:start;gap:.1rem clamp(1rem,2vw,1.5rem);
   grid-template-columns:minmax(150px,26%) 1fr}
-#org .card > figure,#bangkit .card > figure{grid-column:1;grid-row:1/span 9;margin:0}
-#org .card > :not(figure),#bangkit .card > :not(figure){grid-column:2}
-#org .card h3,#bangkit .card h3{margin-top:-.15rem}
-#org .card .stack,#bangkit .card .stack{margin-top:.35rem}
+#bangkit .card > figure{grid-column:1;grid-row:1/span 9;margin:0}
+#bangkit .card > :not(figure){grid-column:2}
+#bangkit .card h3{margin-top:-.15rem}
+#bangkit .card .stack{margin-top:.35rem}
 @media(max-width:700px){
-  #org .card,#bangkit .card{grid-template-columns:1fr}
-  #org .card > figure,#bangkit .card > figure{grid-row:auto;margin-bottom:.7rem}
-  #org .card > :not(figure),#bangkit .card > :not(figure){grid-column:1}
+  #bangkit .card{grid-template-columns:1fr}
+  #bangkit .card > figure{grid-row:auto;margin-bottom:.7rem}
+  #bangkit .card > :not(figure){grid-column:1}
 }
 
-/* project cards: bold outline and a hard offset shadow, three to a row on every screen */
-#project-cards{--line:#2A1A12;padding:clamp(6.5rem,14vw,11.5rem) 0 clamp(6rem,13vw,11rem)}
-#project-cards .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.3rem,2.5vw,2.1rem)}
-#project-cards .card{background:#FFFCF7;border:3px solid var(--line);border-radius:22px;
-  box-shadow:7px 8px 0 var(--line);padding:1rem 1rem 1.15rem;
-  transition:transform .18s ease,box-shadow .18s ease}
+/* tiles: the same compact card on every screen. Photo, tools, title, a few lines of text,
+   and a button that opens the whole card */
+.tiles,.pdlg{--line:#2A1A12;--shade:#6B4030}
+.tiles .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.3rem,2.5vw,2.1rem)}
+#work .grid,#org .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#project-cards{padding:clamp(9rem,19vw,16rem) 0 clamp(8.5rem,18vw,15rem)}
+.tiles .card{background:#FFFCF7;border:3px solid var(--line);border-radius:22px;
+  box-shadow:7px 8px 0 var(--shade);padding:1rem 1rem 1.05rem;cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease;-webkit-tap-highlight-color:transparent}
 @media(hover:hover) and (min-width:861px){
-  #project-cards .card:hover{transform:translate(-3px,-3px);box-shadow:10px 11px 0 var(--line)}}
-:is(#project-cards,.pdlg) .card figure{margin:0 0 .9rem}
-:is(#project-cards,.pdlg) .card .slides{border:2px solid var(--line);border-radius:14px;background:#F3E6DA}
-:is(#project-cards,.pdlg) .card figure figcaption{margin-top:.45rem}
-:is(#project-cards,.pdlg) .card h3{font-size:1.08rem;font-weight:800;color:var(--line)}
-:is(#project-cards,.pdlg) .card .meta{width:fit-content;max-width:100%;margin:.55rem 0 .8rem;
+  .tiles .card:hover{transform:translate(-3px,-3px);box-shadow:10px 11px 0 var(--shade)}}
+.tiles .card:active{transform:translate(2px,2px);box-shadow:3px 4px 0 var(--shade)}
+.tiles .card figure{margin:0 0 .6rem}
+:is(.tiles,.pdlg) .card .slides{border:2px solid var(--line);border-radius:14px;background:#F3E6DA}
+.tiles .card figcaption{display:none}
+.tiles .card .stack{margin:0 0 .65rem;gap:.3rem}
+:is(.tiles,.pdlg) .card .stack span{background:var(--rose);border:1.5px solid var(--line);color:var(--line);
+  font-size:10px;font-weight:700;letter-spacing:.02em;line-height:1.3;padding:.18rem .55rem;border-radius:999px}
+:is(.tiles,.pdlg) .card h3{font-size:1.06rem;font-weight:800;color:var(--line)}
+:is(.tiles,.pdlg) .card .meta{width:fit-content;max-width:100%;margin:.5rem 0 .65rem;
   padding:.16rem .7rem;border:2px solid var(--line);border-radius:999px;background:var(--wheat);
   color:var(--line);font-size:.66rem;font-weight:700;letter-spacing:.04em;line-height:1.45}
-:is(#project-cards,.pdlg) .card .stack{padding-top:.3rem}
-:is(#project-cards,.pdlg) .card .stack span{background:var(--rose);border:1.5px solid var(--line);
-  color:var(--line);font-weight:700;padding:.12rem .5rem}
-:is(#project-cards,.pdlg) .card p.link a{color:var(--line);font-weight:700;border-bottom:2px solid var(--lotus-deep)}
-#project-cards .card .more{display:none}
+.tiles .card p.sum{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:.8rem}
+:is(.tiles,.pdlg) .card .periods{list-style:none;padding:0;margin:0 0 .75rem;display:grid;gap:.3rem}
+:is(.tiles,.pdlg) .card .periods li{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;
+  margin:0;padding:.28rem .6rem;border:1.5px solid var(--line);border-radius:10px;background:#FBF1E4;font-size:.74rem}
+:is(.tiles,.pdlg) .card .periods b{color:var(--line)}
+:is(.tiles,.pdlg) .card .periods span{color:var(--silt)}
+.tiles .card .open{align-self:flex-start;margin-top:auto;padding:.28rem .8rem;border:2px solid var(--line);
+  border-radius:999px;background:var(--wheat);color:var(--line);font:700 .72rem/1.3 Karla,sans-serif;
+  box-shadow:2px 3px 0 var(--shade);cursor:pointer}
+.tiles .card .open[hidden]{display:none}
+.tiles .card .open:hover,.tiles .card .open:focus-visible{background:var(--rose)}
+.pdlg .card figure{margin:0 0 .9rem}
+.pdlg .card figure figcaption{margin-top:.45rem}
+.pdlg .card .stack{padding-top:.3rem}
+.pdlg .card p.link a{color:var(--line);font-weight:700;border-bottom:2px solid var(--lotus-deep)}
 
-/* dotted drawings behind the cards: a rabbit leaping towards the stars, a swirl to land on */
+/* dotted drawings in the margins of the project cards; they sit behind the cards, never over text */
 #project-cards .dotart{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-#project-cards .dotart img{position:absolute;height:auto;opacity:.88}
-#project-cards .dotart .d1{width:clamp(92px,13vw,190px);top:clamp(.5rem,1.8vw,1.4rem);
-  left:calc((100% - var(--w)) / 2 + var(--w) * .1);rotate:-5deg}
-#project-cards .dotart .d2{width:clamp(54px,7.2vw,106px);top:clamp(.3rem,1vw,.9rem);
-  left:calc((100% - var(--w)) / 2 + var(--w) * .72);rotate:9deg}
-#project-cards .dotart .d3{width:clamp(80px,11vw,162px);bottom:clamp(.4rem,1.4vw,1.1rem);
-  left:calc((100% - var(--w)) / 2 + var(--w) * .56);rotate:-8deg}
+#project-cards .dotart img{position:absolute;height:auto}
+#project-cards .dotart .d1{width:clamp(118px,17vw,250px);top:clamp(.5rem,1.4vw,1.2rem);
+  left:calc((100% - var(--w)) / 2 + var(--w) * .04);rotate:-5deg}
+#project-cards .dotart .d5{width:clamp(66px,8.8vw,128px);top:clamp(1.4rem,3.2vw,2.8rem);
+  left:calc((100% - var(--w)) / 2 + var(--w) * .47);rotate:6deg}
+#project-cards .dotart .d2{width:clamp(70px,9.5vw,140px);top:clamp(.4rem,1vw,.9rem);
+  left:calc((100% - var(--w)) / 2 + var(--w) * .8);rotate:9deg}
+#project-cards .dotart .d4{width:clamp(110px,15vw,225px);bottom:clamp(1rem,2.6vw,2.4rem);
+  left:calc((100% - var(--w)) / 2 + var(--w) * .07);rotate:4deg}
+#project-cards .dotart .d3{width:clamp(96px,13.5vw,200px);bottom:clamp(.5rem,1.2vw,1rem);
+  left:calc((100% - var(--w)) / 2 + var(--w) * .66);rotate:-8deg}
 
-/* on narrow screens the cards become small tiles; a tap opens the full card */
 @media(max-width:860px){
-  #project-cards .grid{gap:.75rem .55rem}
-  #project-cards .card{border-width:2px;border-radius:clamp(11px,2.6vw,18px);
-    box-shadow:clamp(3px,.8vw,6px) clamp(4px,1vw,7px) 0 var(--line);
-    padding:.4rem .4rem .5rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  #project-cards .card:active{transform:translate(2px,2px);box-shadow:1px 2px 0 var(--line)}
-  #project-cards .card figure{margin-bottom:.42rem}
-  #project-cards .card .slides{border-width:1.5px;border-radius:8px}
-  #project-cards .card :is(figcaption,.meta,p,ul,.stack){display:none}
-  #project-cards .card h3{font-size:clamp(.68rem,2.3vw,.95rem);line-height:1.25;display:-webkit-box;
-    -webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  #project-cards .card .more{display:block;width:fit-content;margin-top:auto;translate:0 .3rem;
-    padding:.02rem .42rem;border:1.5px solid var(--line);border-radius:999px;background:var(--wheat);
-    color:var(--line);font-size:.58rem;font-weight:700;line-height:1.5}
+  .tiles .grid{gap:.8rem .6rem}
+  #work .grid,#org .grid{gap:.9rem .75rem}
+  .tiles .card{border-width:2px;border-radius:13px;box-shadow:3px 4px 0 var(--shade);padding:.45rem .45rem .55rem}
+  .tiles .card:active{box-shadow:1px 2px 0 var(--shade)}
+  .tiles .card figure{margin-bottom:.4rem}
+  .tiles .card .slides{border-width:1.5px;border-radius:8px}
+  .tiles .card .stack{gap:.2rem;margin-bottom:.4rem}
+  .tiles .card .stack span:nth-child(n+4){display:none}
+  .tiles .card .stack span{font-size:8.5px;padding:.08rem .35rem;border-width:1px}
+  .tiles .card h3{font-size:clamp(.72rem,2.5vw,.95rem);line-height:1.22}
+  .tiles .card .meta{width:auto;border:0;background:none;padding:0;margin:.25rem 0 .3rem;font-size:.6rem;letter-spacing:0;
+    color:var(--lotus-deep);line-height:1.35}
+  .tiles .card p.sum{font-size:.66rem;line-height:1.42;-webkit-line-clamp:4;margin-bottom:.5rem}
+  .tiles .card .periods li{font-size:.6rem;padding:.18rem .35rem;border-width:1px;display:block}
+  .tiles .card .periods span{display:block}
+  .tiles .card .open{padding:.14rem .45rem;border-width:1.5px;font-size:.52rem;white-space:nowrap;box-shadow:1px 2px 0 var(--shade)}
+  #work .card .open,#org .card .open{font-size:.6rem}
 }
-.pdlg{width:min(92vw,520px);max-height:86svh;padding:0;overflow:visible;background:#FFFCF7;color:var(--mud);
-  border:3px solid #2A1A12;border-radius:18px;box-shadow:6px 7px 0 #2A1A12}
+.pdlg{width:min(92vw,560px);max-height:86svh;padding:0;overflow:visible;background:#FFFCF7;color:var(--mud);
+  border:3px solid var(--line);border-radius:18px;box-shadow:6px 7px 0 var(--shade)}
 .pdlg[open]{animation:pdlg-in .22s ease-out}
 .pdlg::backdrop{background:rgba(42,26,18,.5)}
 .pdlg .in{max-height:calc(86svh - 6px);overflow:auto;overscroll-behavior:contain;border-radius:15px;padding:1rem 1rem 1.1rem}
-.pdlg .card{--line:#2A1A12;background:none;border:0;border-radius:0;padding:0}
+.pdlg .card{background:none;border:0;border-radius:0;padding:0}
 .pdlg .x{position:absolute;top:-15px;right:-11px;z-index:2;width:38px;height:38px;border-radius:50%;
-  border:2.5px solid #2A1A12;background:var(--wheat);color:#2A1A12;font:700 1.25rem/1 Karla,sans-serif;
-  box-shadow:2px 3px 0 #2A1A12;cursor:pointer}
+  border:2.5px solid var(--line);background:var(--wheat);color:var(--line);font:700 1.25rem/1 Karla,sans-serif;
+  box-shadow:2px 3px 0 var(--shade);cursor:pointer}
 html.dlg-open{overflow:hidden}
 @keyframes pdlg-in{from{opacity:0;transform:translateY(10px) scale(.97)}}
-@media(prefers-reduced-motion:reduce){.pdlg[open]{animation:none}#project-cards .card{transition:none}}
+@media(prefers-reduced-motion:reduce){.pdlg[open]{animation:none}.tiles .card{transition:none}}
 
 /* thesis feature */
 #thesis{background:linear-gradient(160deg,#8C5A44 0%,#6B4030 60%,#4E2E22 100%);color:#FBEFE0;padding:clamp(3.6rem,8vw,6.5rem) 0;overflow:hidden}
@@ -521,11 +545,13 @@ html.dlg-open{overflow:hidden}
 </section>
 
 <!-- 01b — the rest of the projects, three to a row -->
-<section class="band alt" id="project-cards">
+<section class="band alt tiles" id="project-cards">
   <div class="dotart" aria-hidden="true">
     <img class="d1" src="assets/decor/dots-rabbit.webp" alt="" width="681" height="653" loading="lazy" decoding="async">
     <img class="d2" src="assets/decor/dots-stars.webp" alt="" width="291" height="233" loading="lazy" decoding="async">
+    <img class="d5" src="assets/decor/dots-stars-2.webp" alt="" width="347" height="440" loading="lazy" decoding="async">
     <img class="d3" src="assets/decor/dots-swirl.webp" alt="" width="542" height="538" loading="lazy" decoding="async">
+    <img class="d4" src="assets/decor/dots-rabbit-2.webp" alt="" width="544" height="384" loading="lazy" decoding="async">
   </div>
   <div class="wrap">
     <div class="grid" data-cards="projects.items"></div>
@@ -542,15 +568,23 @@ html.dlg-open{overflow:hidden}
   <div class="deckbar"><div class="dots" id="dots"></div></div>
 </section>
 
-<!-- 02 — organisation -->
-<section class="band" id="org">
+<!-- 02 — work experience -->
+<section class="band alt tiles" id="work">
+  <div class="wrap">
+    <div class="lead" data-lead="work"></div>
+    <div class="grid" data-cards="work.items"></div>
+  </div>
+</section>
+
+<!-- 03 — organisation -->
+<section class="band tiles" id="org">
   <div class="wrap">
     <div class="lead" data-lead="organization"></div>
     <div class="grid" data-cards="organization.items"></div>
   </div>
 </section>
 
-<!-- 03 — Bangkit -->
+<!-- 04 — Bangkit -->
 <section class="band alt" id="bangkit">
   <div class="wrap">
     <div class="lead" data-lead="bangkit"></div>
@@ -558,7 +592,7 @@ html.dlg-open{overflow:hidden}
   </div>
 </section>
 
-<!-- 04 — honours, certificates & publication -->
+<!-- 05 — honours, certificates & publication -->
 <section class="band" id="honours">
   <div class="wrap">
     <div class="lead" data-lead="honours"></div>
@@ -658,6 +692,7 @@ function card(c) {
   }
   a.append(el('h3', null, c.title));
   if (c.meta) a.append(el('p', { class: 'meta' }, c.meta));
+  if (c.periods?.length) a.append(periods(c.periods));
   each(c.paragraphs, p => a.append(el('p', null, p)));
   if (c.points?.length) {
     const ul = el('ul');
@@ -673,20 +708,39 @@ function card(c) {
   return a;
 }
 
-/* on narrow screens the project cards are small tiles; a tap opens the whole card */
-function projectDialog(items) {
+function periods(list) {
+  const ul = el('ul', { class: 'periods' });
+  list.forEach(p => { const li = el('li'); li.append(el('b', null, p.label), el('span', null, p.date)); ul.append(li); });
+  return ul;
+}
+
+/* the compact card: photo, tools, title, a few lines, and a button to the whole card */
+function tile(c) {
+  const a = el('article', { class: 'card' });
+  if (c.images?.length) {
+    const fig = el('figure'), slides = el('div', { class: 'slides' });
+    c.images.forEach((src, i) => slides.append(photo(src, i === 0, c.title || '')));
+    fig.append(slides);
+    a.append(fig);
+  }
+  if (c.stack?.length) a.append(stack(el('div', { class: 'stack' }), c.stack));
+  a.append(el('h3', null, c.title));
+  if (c.meta) a.append(el('p', { class: 'meta' }, c.meta));
+  if (c.periods?.length) a.append(periods(c.periods));
+  if (c.paragraphs?.length) a.append(el('p', { class: 'sum' }, c.paragraphs.join(' ')));
+  const btn = el('button', { class: 'open', type: 'button', 'aria-haspopup': 'dialog' }, 'Lihat selengkapnya');
+  btn.dataset.extra = (c.points?.length || c.link || (c.images?.length && c.caption)) ? '1' : '';
+  a.append(btn);
+  return a;
+}
+
+/* "Lihat selengkapnya" opens the whole card in a dialog; it only shows when something is hidden */
+function tilesDialog(C) {
   const dlg = $('#pdlg'), body = dlg.querySelector('.in');
-  const narrow = matchMedia('(max-width: 860px)');
-  const tiles = [...document.querySelectorAll('#project-cards .card')];
   let tick;
-  const mark = () => tiles.forEach(t => {
-    if (narrow.matches) { t.setAttribute('role', 'button'); t.tabIndex = 0; t.setAttribute('aria-haspopup', 'dialog'); }
-    else { t.removeAttribute('role'); t.removeAttribute('tabindex'); t.removeAttribute('aria-haspopup'); }
-  });
-  const open = i => {
-    if (!narrow.matches || !items?.[i]) return;
-    body.replaceChildren(card(items[i]));
-    dlg.setAttribute('aria-label', items[i].title || 'Project');
+  const open = c => {
+    body.replaceChildren(card(c));
+    dlg.setAttribute('aria-label', c.title || 'Detail');
     dlg.showModal();
     body.scrollTop = 0;
     document.documentElement.classList.add('dlg-open');
@@ -696,15 +750,18 @@ function projectDialog(items) {
       tick = setInterval(() => { shots[k].classList.remove('on'); k = (k + 1) % shots.length; shots[k].classList.add('on'); }, 3400);
     }
   };
-  tiles.forEach((t, i) => {
-    t.append(el('span', { class: 'more', 'aria-hidden': 'true' }, 'Detail &rarr;'));
-    t.addEventListener('click', e => { if (!e.target.closest('a')) open(i); });
-    t.addEventListener('keydown', e => {
-      if (narrow.matches && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(i); }
+  const fits = new ResizeObserver(es => es.forEach(e => {
+    const p = e.target, btn = p.parentElement.querySelector('.open');
+    btn.hidden = !(btn.dataset.extra || p.scrollHeight > p.clientHeight + 2);
+  }));
+  document.querySelectorAll('.tiles [data-cards]').forEach(grid => {
+    const list = at(C, grid.dataset.cards) || [];
+    [...grid.children].forEach((t, i) => {
+      const btn = t.querySelector('.open'), sum = t.querySelector('p.sum');
+      if (sum) fits.observe(sum); else btn.hidden = !btn.dataset.extra;
+      t.addEventListener('click', e => { if (!e.target.closest('a')) open(list[i]); });
     });
   });
-  mark();
-  narrow.addEventListener('change', () => { mark(); if (!narrow.matches && dlg.open) dlg.close(); });
   dlg.querySelector('.x').addEventListener('click', () => dlg.close());
   dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('close', () => { clearInterval(tick); document.documentElement.classList.remove('dlg-open'); });
@@ -716,8 +773,8 @@ function render(C) {
 
   document.querySelectorAll('[data-bind]').forEach(e => { e.innerHTML = ini(at(C, e.dataset.bind)); });
   document.querySelectorAll('[data-lead]').forEach(e => lead(e, at(C, e.dataset.lead)));
-  document.querySelectorAll('[data-cards]').forEach(e => each(at(C, e.dataset.cards), c => e.append(card(c))));
-  projectDialog(C.projects?.items);
+  document.querySelectorAll('[data-cards]').forEach(e => each(at(C, e.dataset.cards), c => e.append(e.closest('.tiles') ? tile(c) : card(c))));
+  tilesDialog(C);
 
   /* about: the bio is plain text, the script below lays it out word by word */
   $('.bio .type').dataset.text = C.about?.bio ?? '';

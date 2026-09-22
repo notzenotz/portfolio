@@ -67,6 +67,11 @@ def card(c, where):
     for k in CARD_LISTS:
         if k in c:
             text_list(c[k], f"{where}.{k}")
+    if "periods" in c and expect(c["periods"], "list", f"{where}.periods"):
+        for j, pr in enumerate(c["periods"]):
+            if expect(pr, "object", f"{where}.periods[{j}]"):
+                for k in ("label", "date"):
+                    expect(pr.get(k), "text", f"{where}.periods[{j}].{k}")
     if "link" in c and expect(c["link"], "object", f"{where}.link"):
         for k in ("text", "url"):
             if not isinstance(c["link"].get(k), str):
@@ -82,7 +87,7 @@ def items(section, key="items"):
     return value if expect(value, "list", f"{section}.{key}") else []
 
 
-for section in ("projects", "organization", "bangkit", "honours"):
+for section in ("projects", "work", "organization", "bangkit", "honours"):
     for i, c in enumerate(items(section)):
         card(c, f"{section}.items[{i}]")
 

@@ -32,7 +32,7 @@ Isi `site/assets/`:
 | `thesis/` | grafik hasil uji di bagian skripsi |
 | `honours/` | foto di kartu prestasi dan publikasi |
 | `tools/` | ikon Skills & Tools |
-| `decor/` | ornamen dan frame animasi: teratai, koi, kupu-kupu, bingkai foto, air kolam, dan tiga gambar titik-titik di belakang kartu project (`dots-*.webp`) |
+| `decor/` | ornamen dan frame animasi: teratai, koi, kupu-kupu, bingkai foto, air kolam, dan lima gambar titik-titik di belakang kartu project (`dots-*.webp`) |
 | `_unused/` | 12 frame koi lama yang tidak dipakai kode mana pun, tidak ikut di-upload |
 
 ## Cara kerja deploy
@@ -104,9 +104,18 @@ Salin satu blok di `projects.items`, lalu taruh di posisi yang kamu mau. Urutan 
 }
 ```
 
-Semua bagian boleh dihapus kecuali `title`. Kalau `images` berisi lebih dari satu foto, fotonya bergantian sendiri. Bentuk kartu yang sama dipakai di `organization.items`, `bangkit.items`, dan `honours.items`.
+Semua bagian boleh dihapus kecuali `title`. Kalau `images` berisi lebih dari satu foto, fotonya bergantian sendiri. Bentuk kartu yang sama dipakai di `work.items`, `organization.items`, `bangkit.items`, dan `honours.items`.
 
-Kartu project tampil tiga per baris, di laptop maupun di HP. Di HP kartunya cuma menampilkan foto dan judul, lalu isi lengkapnya muncul di jendela kecil waktu kartu diketuk. Jadi judul yang pendek lebih enak dilihat di HP.
+Kartu di bagian project, pengalaman kerja, dan organisasi tampil ringkas dengan bentuk yang sama di laptop maupun HP: foto, tools dari `stack`, judul, `meta`, lalu beberapa baris pertama dari `paragraphs`. Tombol **Lihat selengkapnya** muncul kalau teksnya terpotong atau ada isi lain (`points`, `link`, `caption`), dan membuka kartu lengkap di jendela kecil. Project tampil tiga per baris, pengalaman kerja dan organisasi dua per baris.
+
+Untuk posisi yang punya beberapa periode, tambahkan `periods`:
+
+```json
+"periods": [
+  { "label": "Periode 1 · Level 1", "date": "Nov 2024 – Feb 2025" },
+  { "label": "Periode 2 · Level 2", "date": "Mar 2025 – Jul 2025" }
+]
+```
 
 ## Mengganti foto
 
@@ -129,7 +138,8 @@ Pakai huruf kecil dan tanda hubung untuk nama file, tanpa spasi. Format `.webp` 
 | `cover` | nama besar di halaman pembuka dan tulisan "scroll" |
 | `about` | nama, peran, bio, soft skills (`softSkills.items`), pendidikan, dan dua foto profil yang bergantian |
 | `skills.tools` | ikon Skills & Tools. Tanpa `icon`, yang tampil dua huruf awal nama. Susunan kerucutnya dirancang untuk 17 ikon, jadi kalau jumlahnya beda jauh, bentuknya ikut berubah |
-| `toc` | daftar isi. Angka seperti "6 project" masih ditulis manual |
+| `work` | pengalaman kerja (magang, mengajar), dua kartu per baris |
+| `toc` | daftar isi. Angka seperti "10 project" masih ditulis manual |
 | `thesis` | bagian skripsi, termasuk dua gambar di `shots` |
 | `posters.items` | poster yang berganti sendiri |
 | `honours` | prestasi (`items`) dan sertifikat (`certificates`) |
