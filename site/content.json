@@ -220,6 +220,12 @@
       {
         "title": "Community Member CRM dengan Integrasi Website",
         "meta": "Project pribadi · CRM & Web · 2026",
+        "images": [
+          "assets/projects/pj-crm-pipeline.webp",
+          "assets/projects/pj-crm-board.webp",
+          "assets/projects/pj-crm-record.webp"
+        ],
+        "caption": "Pipeline keanggotaan enam tahap, papan deal berisi 19 perusahaan, dan record perusahaan yang terbentuk otomatis dari formulir",
         "paragraphs": [
           "Sistem pengelolaan anggota untuk sebuah jaringan perusahaan. Pipeline bawaan HubSpot yang dirancang untuk tim penjualan saya ganti menjadi enam tahap perjalanan keanggotaan, dari Prospect Identified sampai Active Member, dan satu tahap bawaan saya hapus karena isinya tumpang tindih dengan tahap lain.",
           "Data 19 perusahaan beserta PIC dan proses keanggotaannya diimpor sebagai 57 record yang saling terhubung. Beberapa kolom gagal masuk di impor pertama, jadi saya perbaiki lewat impor kedua bermode update dengan domain perusahaan sebagai kunci pencocokan, sehingga tidak ada data yang terduplikasi.",
